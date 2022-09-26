@@ -23,7 +23,7 @@ public class ProveedorController {
 	@GetMapping("/proveedor/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("proveedor", proveedorService.listAllProveedor());
-		return "proveedorListar";
+		return "Dashboard/proveedor/proveedorListar";
 	}
 
 	@GetMapping("/proveedor/crear")

@@ -54,7 +54,7 @@ public class InventarioController {
 		return "redirect:/Dashboard/inventario/inventarioListar";
 	}
 	
-	@GetMapping("/inventario/editar/{id}")
+	@GetMapping("/inventario/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		inventarioService.deleteInventarios(id);
 		return "redirect:/Dashboard/inventario/inventarioListar";

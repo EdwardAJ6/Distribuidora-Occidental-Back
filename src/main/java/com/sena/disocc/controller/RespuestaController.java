@@ -23,7 +23,7 @@ public class RespuestaController {
 	@GetMapping("/respuesta/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("respuesta", resService.listaAllRespuestas());
-		return "Dashboard/respuesta/respeustaListar";
+		return "Dashboard/respuesta/respuestaListar";
 	}
 
 	@GetMapping("/respuesta/crear")
