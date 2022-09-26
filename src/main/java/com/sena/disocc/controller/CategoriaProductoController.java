@@ -51,7 +51,7 @@ public class CategoriaProductoController {
 		categoriaProductoService.saveCategoriasProductos(categoriaProductoExistente);
 		return "redirect:/Dashboard/categoriaPorducto/categoriaPorductoListar";
 	}
-	
+
 	@GetMapping("/categoriaProducto/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		categoriaProductoService.deleteCategoriasProductos(id);

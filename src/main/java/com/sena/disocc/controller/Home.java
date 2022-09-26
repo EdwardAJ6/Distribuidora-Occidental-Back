@@ -21,8 +21,7 @@ public class Home {
 	
 	@GetMapping("")
 	public String homdos() {
-		return "inicioAdmin";
-		
+		return "inicioAdmin";	
 	}
 	
 }
