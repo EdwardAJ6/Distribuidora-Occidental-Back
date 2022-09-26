@@ -34,7 +34,7 @@ public class CategoriaProductoController {
 	@PostMapping("/categoriaProducto")
 	public String guardar(@ModelAttribute("categoriaProducto") CategoriasProductos categoriasProductos) {
 		categoriaProductoService.saveCategoriasProductos(categoriasProductos);
-		return "redirect:/Dashboard/categoriaProducto/categoriaProductoListar";
+		return "redirect:/Dashboard/admin/categoriaProducto/listar";
 	}
 	
 	@GetMapping("/categoriaProducto/editar/{id}")
@@ -49,7 +49,7 @@ public class CategoriaProductoController {
 		categoriaProductoExistente.setIdCategoria(id);
 		categoriaProductoExistente.setIdNombreCategoria(categoriasProducto.getIdNombreCategoria());
 		categoriaProductoService.saveCategoriasProductos(categoriaProductoExistente);
-		return "redirect:/Dashboard/categoriaPorducto/categoriaPorductoListar";
+		return "redirect:/Dashboard/admin/categoriaProducto/listar";
 	}
 
 	@GetMapping("/categoriaProducto/eliminar/{id}")
