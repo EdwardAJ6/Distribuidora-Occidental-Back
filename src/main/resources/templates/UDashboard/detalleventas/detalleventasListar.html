@@ -30,36 +30,36 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+ <!-- Sidebar -->
+ <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/Dashboard/admin}">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Distribuidora Occidental</div>
-            </a>
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/Dashboard/admin}">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Distribuidora Occidental</div>
+    </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/Dashboard/admin}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" th:href="@{/Dashboard/admin}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                CRUD
-            </div>
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        CRUD
+    </div>
 
-           <!-- Nav Item - Pages Collapse Menu -->
+             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoriaP"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -115,9 +115,9 @@
                 </a>
                 <div id="detalleventas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/crear}">Crear</a>
-                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/editar}">Editar</a>
+                        <a class="collapse-item" th:href="@{listar}">Listar</a>
+                        <a class="collapse-item" th:href="@{crear}">Crear</a>
+                        <a class="collapse-item" th:href="@{editar}">Editar</a>
 
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                 <div id="inventarioentrada" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" th:href="@{/Dashboard/admin/inventarioEntrada/listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/inventaroEntrada/crear}">Crear</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/inventarioEntrada/crear}">Crear</a>
                         <a class="collapse-item" th:href="@{/Dashboard/admin/inventarioEntrada/editar}">Editar</a>
 
                     </div>
@@ -245,9 +245,9 @@
                 </a>
                 <div id="producto" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{crear}">Crear</a>
-                        <a class="collapse-item" th:href="@{editar}">Editar</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/producto/listar}">Listar</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/producto/crear}">Crear</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/producto/editar}">Editar</a>
 
                     </div>
                 </div>
@@ -325,9 +325,9 @@
                 </a>
                 <div id="tipopeticion" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/tipoPeticion/listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/tipoPeticion/crear}">Crear</a>
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/tipoPeticion/editar}">Editar</a>
+                        <a class="collapse-item" th:href="@{Dashboard/admin/tipoPeticion/listar}">Listar</a>
+                        <a class="collapse-item" th:href="@{Dashboard/admin/tipoPeticion/crear}">Crear</a>
+                        <a class="collapse-item" th:href="@{Dashboard/admin/tipoPeticion/editar}">Editar</a>
 
                     </div>
                 </div>
@@ -341,9 +341,9 @@
                 </a>
                 <div id="usuario" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/usuario/listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/usuario/crear}">Crear</a>
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/usuario/editar}">Editar</a>
+                        <a class="collapse-item" th:href="@{Dashboard/admin/usuario/listar}">Listar</a>
+                        <a class="collapse-item" th:href="@{Dashboard/admin/usuario/crear}">Crear</a>
+                        <a class="collapse-item" th:href="@{Dashboard/admin/usuario/editar}">Editar</a>
 
                     </div>
                 </div>
@@ -366,17 +366,17 @@
             </li>
                 
 
-    		<!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
 
 
-        </ul>
-        <!-- End of Sidebar -->
+</ul>
+<!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -414,7 +414,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="../../../../img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle"src="../../img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -443,79 +443,67 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Editar Producto</h6>
-                        </div>
-                        <div class="card-body">
-                            <form th:action="@{/Dashboard/admin/producto/editar/{id}(id=${producto.idProducto})}" th:object="${producto}" method="post">
-                        <div class="form-row">
-									<div class="form-group col-md-6">
-										<label>Id</label> <input type="text" class="form-control"
-											th:field="*{idProducto}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Nombre del producto </label> <input type="text"
-											class="form-control" th:field="*{nombre}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Precio</label> <input type="text" class="form-control"
-											th:field="*{precioUnidad}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Stock </label> <input type="text" class="form-control"
-											th:field="*{stockDisponible}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Descripcion</label> <input type="text"
-											class="form-control" th:field="*{descripcion}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Fecha de vencimiento</label> <input type="text"
-											class="form-control" >
-									</div>
-									
-									<div class="form-group col-md-6">
-										<label for="exampleFormControlSelect1">Marca</label>
-										 <select
-											class="form-control" id="exampleFormControlSelect1" th:field="*{Marca}">
-											<option th:each="marca : ${marca}"
-												th:value="${marca.idMarca}" th:text="${marca.nombreMarca}"
-												th:selected="false"/>
-										</select>
-									</div>
-									<div class="form-group col-md-6">
-										<label for="exampleFormControlSelect1">Categoria</label>
-										 <select
-											class="form-control" id="exampleFormControlSelect1" th:field="*{CategoriaProducto}">
-											<option th:each="categoria : ${categoria}"
-												th:value="${categoria.idCategoria}" th:text="${categoria.idNombreCategoria}"
-												th:selected="false"/>
-										</select>
-									</div>
-									<div class="form-group col-md-6">
-										<label>Imagen</label> <input type="file" name="imagensubida"
-											accept="image/png, .jpeg, .jpg, image/gif">
-									</div>
-
-								</div>
-
-                                <button type="submit" class="btn btn-success">Editar</button>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- End of Main Content -->
-            </div>
-            <!-- End of Main Content -->
+                         <!-- Page Heading -->
+                         <h1 class="h3 mb-2 text-gray-800">Detalle ventas</h1>
+                        
+                         <!-- DataTales Example -->
+                         <div class="card shadow mb-4">
+                             <div class="card-header py-3">
+                                 <h6 class="m-0 font-weight-bold text-primary">Lista de Detalle ventas</h6>
+                             </div>
+                             <div class="card-body">
+                                 <div class="table-responsive">
+                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                         <thead>
+                                             <tr>                      
+                                                <th>Id</th>
+                                                <th>Id de la venta</th>                                               
+                                                 <th>Fecha</th>
+                                                 <th>Precio del producto</th>
+                                                 <th>Cantidad</th>
+                                                 <th>Subtotal</th>
+                                                 <th>Iva</th>
+                                                 <th>Total</th>
+                                                 <th>Acciones</th>
+                                             </tr>
+                                         </thead>                                
+                                         <tbody>
+                                             <tr>
+                                                <td>Id</td>
+                                                <td>Id de venta</td>
+                                                <td>Fecha</td>
+                                                <td>Precio del producto</td>
+                                                <td>Cantidad</td>
+                                                <td>Subtotal</td>
+                                                <td>Iva</td>
+                                                <td>Total</td>
+                                                <td>
+                                                    <a href="##" class="btn btn-danger btn-circle btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                    <a href="##" class="btn btn-info btn-circle btn-sm">
+                                                        <i class="fas fa-info-circle"></i>
+                                                    </a>
+                                                 </td>
+                                             </tr>
+                                            
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             </div>
+                         </div>
+     
+                     </div>
+                     <!-- /.container-fluid -->
+     
+                 </div>
+                 <!-- End of Main Content -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2022</span>
+                        <span>Copyright &copy; Your Website 2021</span>
                     </div>
                 </div>
             </footer>
@@ -546,7 +534,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="#">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>

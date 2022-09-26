@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Distribuidora Occidental</title>
-
+    
     <!-- Custom fonts for this template-->
     <link href="../../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -59,7 +59,7 @@
                 CRUD
             </div>
 
-           <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoriaP"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -115,9 +115,9 @@
                 </a>
                 <div id="detalleventas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/crear}">Crear</a>
-                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/editar}">Editar</a>
+                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/listar">Listar</a>
+                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/crear">Crear</a>
+                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/editar">Editar</a>
 
                     </div>
                 </div>
@@ -245,9 +245,9 @@
                 </a>
                 <div id="producto" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{crear}">Crear</a>
-                        <a class="collapse-item" th:href="@{editar}">Editar</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/producto/listar}">Listar</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/producto/crear}">Crear</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/producto/editar}">Editar</a>
 
                     </div>
                 </div>
@@ -277,9 +277,9 @@
                 </a>
                 <div id="respuesta" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/respuesta/listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/respuesta/crear}">Crear</a>
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/respuesta/editar}">Editar</a>
+                        <a class="collapse-item" th:href="@{Dashboard/admin/respuesta/listar}">Listar</a>
+                        <a class="collapse-item" th:href="@{Dashboard/admin/respuesta/listar}">Crear</a>
+                        <a class="collapse-item" th:href="@{Dashboard/admin/respuesta/listar}">Editar</a>
 
                     </div>
                 </div>
@@ -341,9 +341,9 @@
                 </a>
                 <div id="usuario" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/usuario/listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/usuario/crear}">Crear</a>
-                        <a class="collapse-item" th:href="@{/Dashboard/admin/usuario/editar}">Editar</a>
+                        <a class="collapse-item" th:href="@{listar}">Listar</a>
+                        <a class="collapse-item" th:href="@{crear}">Crear</a>
+                        <a class="collapse-item" th:href="@{editar}">Editar</a>
 
                     </div>
                 </div>
@@ -446,60 +446,71 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Editar Producto</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Editar de Categorias de los productos</h6>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/Dashboard/admin/producto/editar/{id}(id=${producto.idProducto})}" th:object="${producto}" method="post">
-                        <div class="form-row">
-									<div class="form-group col-md-6">
-										<label>Id</label> <input type="text" class="form-control"
-											th:field="*{idProducto}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Nombre del producto </label> <input type="text"
-											class="form-control" th:field="*{nombre}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Precio</label> <input type="text" class="form-control"
-											th:field="*{precioUnidad}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Stock </label> <input type="text" class="form-control"
-											th:field="*{stockDisponible}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Descripcion</label> <input type="text"
-											class="form-control" th:field="*{descripcion}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Fecha de vencimiento</label> <input type="text"
-											class="form-control" >
-									</div>
-									
-									<div class="form-group col-md-6">
-										<label for="exampleFormControlSelect1">Marca</label>
-										 <select
-											class="form-control" id="exampleFormControlSelect1" th:field="*{Marca}">
-											<option th:each="marca : ${marca}"
-												th:value="${marca.idMarca}" th:text="${marca.nombreMarca}"
-												th:selected="false"/>
-										</select>
-									</div>
-									<div class="form-group col-md-6">
-										<label for="exampleFormControlSelect1">Categoria</label>
-										 <select
-											class="form-control" id="exampleFormControlSelect1" th:field="*{CategoriaProducto}">
-											<option th:each="categoria : ${categoria}"
-												th:value="${categoria.idCategoria}" th:text="${categoria.idNombreCategoria}"
-												th:selected="false"/>
-										</select>
-									</div>
-									<div class="form-group col-md-6">
-										<label>Imagen</label> <input type="file" name="imagensubida"
-											accept="image/png, .jpeg, .jpg, image/gif">
-									</div>
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Primer Nombre</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Segundo Nombre</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Primer Apellido</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Segundo Apellido</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Numero de Documento</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Dirrecion</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Telefono</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Correo</label>
+                                        <input type="email" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Contraseña</label>
+                                        <input type="password" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleFormControlSelect1">Rol</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleFormControlSelect1">Tipo de Documento</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleFormControlSelect1">Estado</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>
 
-								</div>
+
+                                </div>
 
                                 <button type="submit" class="btn btn-success">Editar</button>
                             </form>

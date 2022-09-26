@@ -449,11 +449,11 @@
                                             <h6 class="m-0 font-weight-bold text-primary">Crear inventario</h6>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                            <form th:action="@{/Dashboard/admin/inventario}" th:object="${inventario}" method="POST">
                                                 <div class="form-row">
                                                   <div class="form-group col-md-6">
                                                     <label>Nombre del Invetario</label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" class="form-control" th:field="*{nombre}" >
                                                   </div>
                                                  
                                                 </div>

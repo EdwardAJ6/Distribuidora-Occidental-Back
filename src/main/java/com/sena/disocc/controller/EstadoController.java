@@ -34,7 +34,7 @@ public class EstadoController {
 	@PostMapping("/estado")
 	public String guardar(@ModelAttribute("estado") Estado estado) {
 		estadoService.saveEstado(estado);
-		return "redirect:/Dashboard/estado/estadoListar";
+		return "redirect:/Dashboard/admin/estado/listar";
 	}
 	
 	@GetMapping("/estado/editar/{id}")
@@ -49,12 +49,12 @@ public class EstadoController {
 		estadoExistente.setIdEstado(id);
 		estadoExistente.setNombre(estado.getNombre());
 		estadoService.saveEstado(estadoExistente);
-		return "redirect:/Dashboard/estado/estadoListar";
+		return "redirect:/Dashboard/admin/estado/listar";
 	}
 	
 	@GetMapping("/estado/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		estadoService.deleteEstado(id);
-		return "redirect:/Dashboard/estado/estadoListar";
+		return "redirect:/Dashboard/admin/estado/listar";
 	}
 }

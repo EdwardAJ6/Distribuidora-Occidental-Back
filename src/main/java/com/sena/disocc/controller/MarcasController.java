@@ -36,7 +36,7 @@ public class MarcasController {
 	@PostMapping("/marca")
 	public String guardar(@ModelAttribute("marca") Marcas marcas) {
 		marcasService.saveMarcas(marcas);
-		return "redirect:/Dashboard/marca/marcaListar";
+		return "redirect:/Dashboard/admin/marca/listar";
 	}
 	
 	@GetMapping("/marca/editar/{id}")
@@ -51,12 +51,12 @@ public class MarcasController {
 		marcaExistente.setIdMarca(id);
 		marcaExistente.setNombreMarca(marcas.getNombreMarca());
 		marcasService.saveMarcas(marcaExistente);
-		return "redirect:/Dashboard/marca/marcaListar";
+		return "redirect:/Dashboard/admin/marca/listar";
 	}
 	
 	@GetMapping("/marca/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		marcasService.deleteMarcas(id);
-		return "redirect:/Dashboard/marca/marcaListar";
+		return "redirect:/Dashboard/admin/marca/listar";
 	}
 }

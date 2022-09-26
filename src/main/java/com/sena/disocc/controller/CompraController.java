@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.sena.disocc.modelo.Compra;
+import com.sena.disocc.modelo.Proveedor;
 import com.sena.disocc.service.CompraService;
+import com.sena.disocc.service.ProveedorService;
 
 @Controller
 @RequestMapping("/Dashboard/admin")
@@ -17,6 +19,9 @@ public class CompraController {
 
 	@Autowired
 	CompraService compraService;
+	
+	@Autowired
+	ProveedorService proveedorService;
 
 	@GetMapping("/compra/listar")
 	public String list(Model modelo) {
@@ -28,13 +33,14 @@ public class CompraController {
 	public String formularioGuardar(Model modelo) {
 		Compra compra = new Compra();
 		modelo.addAttribute("compra", compra);
+		modelo.addAttribute("proveedor", proveedorService.listAllProveedor());
 		return "Dashboard/compras/comprasCrear";
 	}
 
 	@PostMapping("/compra")
-	public String guardar(@ModelAttribute("compra") Compra compra) {
+	public String guardar(@ModelAttribute("compra") Compra compra ,@ModelAttribute("proveedor") Proveedor proveedor) {
 		compraService.saveCompra(compra);
-		return "redirect:/Dashboard/compras/comprasListar";
+		return "redirect:/Dashboard/admin/compra/listar";
 	}
 	
 	@GetMapping("/compra/editar/{id}")
@@ -51,12 +57,12 @@ public class CompraController {
 		compraExistente.setTotal(compra.getTotal());
 		compraExistente.setPagoRealizado(compra.getPagoRealizado());
 		compraService.saveCompra(compraExistente);
-		return "redirect:/Dashboard/compras/comprasListar";
+		return "redirect:/Dashboard/admin/compra/compraListar";
 	}
 	
 	@GetMapping("/compra/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		compraService.deleteCompra(id);
-		return "redirect:/Dashboard/compras/comprasListar";
+		return "redirect:/Dashboard/admin/compra/compraListar";
 	}
 }

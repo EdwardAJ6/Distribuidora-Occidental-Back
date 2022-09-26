@@ -449,11 +449,11 @@
                                             <h6 class="m-0 font-weight-bold text-primary">Crear Marcas</h6>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                            <form th:action="@{/Dashboard/admin/marca}" th:object="${marca}" method="POST">
                                                 <div class="form-row">
                                                   <div class="form-group col-md-6">
                                                     <label>Nombre de la Marca </label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" class="form-control" th:field="*{nombreMarca}" >
                                                   </div>
                                                  
                                                 </div>

@@ -36,7 +36,7 @@ public class ProveedorController {
 	@PostMapping("/proveedor")
 	public String guardar(@ModelAttribute("proveedor") Proveedor proveedor) {
 		proveedorService.saveProveedor(proveedor);
-		return "redirect:/Dashboard/proveedor/proveedorListar";
+		return "redirect:/Dashboard/admin/proveedor/listar";
 	}
 	
 	@GetMapping("/proveedor/editar/{id}")
@@ -55,12 +55,12 @@ public class ProveedorController {
 		proveedorExistente.setTelefono(proveedor.getTelefono());
 		proveedorExistente.setCorreo(proveedor.getCorreo());
 		proveedorService.saveProveedor(proveedorExistente);
-		return "redirect:/Dashboard/proveedor/proveedorListar";
+		return "redirect:/Dashboard/admin/proveedor/listar";
 	}
 	
 	@GetMapping("/proveedor/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		proveedorService.deleteProveedor(id);
-		return "redirect:/Dashboard/proveedor/proveedorListar";
+		return "redirect:/Dashboard/admin/proveedor/listar";
 	}
 }

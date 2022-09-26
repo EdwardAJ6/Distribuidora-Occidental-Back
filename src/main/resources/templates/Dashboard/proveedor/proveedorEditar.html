@@ -449,30 +449,30 @@
                             <h6 class="m-0 font-weight-bold text-primary">Editar Proveedor</h6>
                         </div>
                         <div class="card-body">
-                            <form>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>Nombre del proveedor</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Nit</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Dirreccion</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Telefono</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Correo</label>
-                                        <input type="text" class="form-control">
-                                    </div>
+                            <form th:action="@{/Dashboard/admin/proveedor/editar/{id}(id=${proveedor.idProveedor})}" th:object="${proveedor}" method="post">
+                             <div class="form-row">
+									<div class="form-group col-md-6">
+										<label>Nombre del proveedor</label> <input type="text"
+											class="form-control" th:field="*{nombreProveedor}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Nit</label> <input type="text" class="form-control"
+											th:field="*{nitProveedor}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Dirreccion</label> <input type="text"
+											class="form-control" th:field="*{direccion}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Telefono</label> <input type="text"
+											class="form-control" th:field="*{telefono}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Correo</label> <input type="text" class="form-control"
+											th:field="*{correo}">
+									</div>
 
-                                </div>
+								</div>
 
                                 <button type="submit" class="btn btn-success">Editar</button>
                             </form>

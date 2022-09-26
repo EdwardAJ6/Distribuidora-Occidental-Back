@@ -36,27 +36,27 @@ public class InventarioController {
 	@PostMapping("/inventario")
 	public String guardar(@ModelAttribute("inventario") Inventarios inventarios) {
 		inventarioService.saveInventarios(inventarios);
-		return "redirect:/Dashboard/inventario/inventarioListar";
+		return "redirect:/Dashboard/admin/inventario/listar";
 	}
 	
 	@GetMapping("/inventario/editar/{id}")
 	public String formularioEditar(@PathVariable int id, Model modelo) {
 		modelo.addAttribute("inventario", inventarioService.findById(id));
-		return "Dashboard/estado/inventarioEditar";
+		return "Dashboard/inventario/inventarioEditar";
 	}
 	
 	@PostMapping("/inventario/editar/{id}")
-	public String editar(@PathVariable int id, @ModelAttribute("estado") Inventarios inventarios) {
+	public String editar(@PathVariable int id, @ModelAttribute("inventario") Inventarios inventarios) {
 		Inventarios inventarioExistente = inventarioService.findById(id);
 		inventarioExistente.setIdInventario(id);
 		inventarioExistente.setNombre(inventarios.getNombre());
 		inventarioService.saveInventarios(inventarioExistente);
-		return "redirect:/Dashboard/inventario/inventarioListar";
+		return "redirect:/Dashboard/admin/inventario/listar";
 	}
 	
 	@GetMapping("/inventario/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		inventarioService.deleteInventarios(id);
-		return "redirect:/Dashboard/inventario/inventarioListar";
+		return "redirect:/Dashboard/admin/inventario/listar";
 	}
 }
