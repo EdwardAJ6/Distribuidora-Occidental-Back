@@ -453,7 +453,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Editar de Categorias de los productos</h6>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/categoriaProducto/editar/{id}(id=${categoriaProducto.idCategoria})}" th:object="${categoriaProducto}" method="post">
+                            <form th:action="@{/Dashboard/admin/categoriaProducto/editar/{id}(id=${categoriaProducto.idCategoria})}" th:object="${categoriaProducto}" method="post">
                                 <div class="form-row">
                                   <div class="form-group col-md-6">
                                     <label>Nombre de la categoria </label>

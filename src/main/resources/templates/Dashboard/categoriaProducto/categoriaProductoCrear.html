@@ -449,11 +449,11 @@
                             <h6 class="m-0 font-weight-bold text-primary">Crear de Categorias de los productos</h6>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form th:action="@{/Dashboard/admin/categoriaProducto}" th:object="${categoriaProducto}" method="POST">
                                 <div class="form-row">
                                   <div class="form-group col-md-6">
                                     <label>Nombre de la categoria </label>
-                                    <input type="text" class="form-control" >
+                                    <input type="text" class="form-control" th:field="*{idNombreCategoria}" >
                                   </div>
                                  
                                 </div>
