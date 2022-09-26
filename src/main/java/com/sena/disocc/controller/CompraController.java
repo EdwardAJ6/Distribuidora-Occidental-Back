@@ -24,7 +24,7 @@ public class CompraController {
 		return "Dashboard/compras/comprasListar";
 	}
 
-	@GetMapping("/compra/nuevo")
+	@GetMapping("/compra/crear")
 	public String formularioGuardar(Model modelo) {
 		Compra compra = new Compra();
 		modelo.addAttribute("compra", compra);
@@ -43,7 +43,7 @@ public class CompraController {
 		return "Dashboard/compras/comprasEditar";
 	}
 	
-	@PostMapping("/compra/{id}")
+	@PostMapping("/compra/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("compra") Compra compra) {
 		Compra compraExistente = compraService.findById(id);
 		compraExistente.setIdCompra(id);
@@ -54,7 +54,7 @@ public class CompraController {
 		return "redirect:/Dashboard/compras/comprasListar";
 	}
 	
-	@GetMapping("/compra/{id}")
+	@GetMapping("/compra/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		compraService.deleteCompra(id);
 		return "redirect:/Dashboard/compras/comprasListar";

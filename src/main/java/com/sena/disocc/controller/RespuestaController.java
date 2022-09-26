@@ -20,13 +20,13 @@ public class RespuestaController {
 	@Autowired
 	RespuestaService resService;
 	
-	@GetMapping("/respuesta")
+	@GetMapping("/respuesta/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("respuesta", resService.listaAllRespuestas());
 		return "Dashboard/respuesta/respeustaListar";
 	}
 
-	@GetMapping("/respuesta/nuevo")
+	@GetMapping("/respuesta/crear")
 	public String formularioGuardar(Model modelo) {
 		Respuesta respuesta = new Respuesta();
 		modelo.addAttribute("respuesta", respuesta);
@@ -45,7 +45,7 @@ public class RespuestaController {
 		return "Dashboard/respuesta/respuestaEditar";
 	}
 	
-	@PostMapping("/respuesta/{id}")
+	@PostMapping("/respuesta/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("respuesta") Respuesta respuesta) {
 		Respuesta respuestaExistente = resService.findById(id);
 		respuestaExistente.setIdRespuesta(id);
@@ -56,7 +56,7 @@ public class RespuestaController {
 		return "redirect:/Dashboard/respuesta/respuestaListar";
 	}
 	
-	@GetMapping("/respuesta/{id}")
+	@GetMapping("/respuesta/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		resService.deleteRespuestas(id);
 		return "redirect:/Dashboard/respuesta/respuestaListar";

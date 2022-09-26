@@ -19,45 +19,45 @@ public class TipoDocumentoController {
 	@Autowired
 	TipoDocumentoService tdService;
 	
-	@GetMapping("/tipoDocumento")
+	@GetMapping("/tipoDocumento/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("tipoDocumento", tdService.listAllTipoDoc());
-		return "Dashboard/tipodocumento/tipoDocumentoListar";
+		return "Dashboard/tipodocumento/tipodocumentoListar";
 	}
 
-	@GetMapping("/tipoDocumento/nuevo")
+	@GetMapping("/tipoDocumento/crear")
 	public String formularioGuardar(Model modelo) {
 		TipoDocumento tipoDocumento = new TipoDocumento();
 		modelo.addAttribute("tipoDocumento", tipoDocumento);
-		return "Dashboard/tipodocumento/tipoDocumentoCrear";
+		return "Dashboard/tipodocumento/tipodocumentoCrear";
 	}
 
 	@PostMapping("/tipoDocumento")
 	public String guardar(@ModelAttribute("tipoDocumento") TipoDocumento tipoDocumento) {
 		tdService.saveTipoDoc(tipoDocumento);
-		return "redirect:/Dashboard/tipodocumento/tipoDocumentoListar";
+		return "redirect:/Dashboard/tipodocumento/tipodocumentoListar";
 	}	
 	
 	@GetMapping("/tipoDocumento/editar/{id}")
 	public String formularioEditar(@PathVariable int id, Model modelo) {
 		modelo.addAttribute("tipoDocumento", tdService.findById(id));
-		return "Dashboard/tipodocumento/tipoDocumentoEditar";
+		return "Dashboard/tipodocumento/tipodocumentoEditar";
 	}
 	
-	@PostMapping("/tipoDocumento/{id}")
+	@PostMapping("/tipoDocumento/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("tipoDocumento") TipoDocumento tipoDocumento) {
 		TipoDocumento tipoDocumentoExistente = tdService.findById(id);
 		tipoDocumentoExistente.setIdTipoDocumento(id);
 		tipoDocumentoExistente.setNombreDocumento(tipoDocumento.getNombreDocumento());
 		tipoDocumentoExistente.setSiglas(tipoDocumento.getSiglas());
 		tdService.saveTipoDoc(tipoDocumentoExistente);
-		return "redirect:/Dashboard/tipodocumento/tipoDocumentoListar";
+		return "redirect:/Dashboard/tipodocumento/tipodocumentoListar";
 	}
 	
-	@GetMapping("/tipoDocumento/{id}")
+	@GetMapping("/tipoDocumento/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		tdService.deleteTipoDoc(id);
-		return "redirect:/Dashboard/tipodocumento/tipoDocumentoListar";
+		return "redirect:/Dashboard/tipodocumento/tipodocumentoListar";
 	}
 }
 

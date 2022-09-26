@@ -18,13 +18,13 @@ public class EstadoController {
 	@Autowired
 	EstadoService estadoService;
 
-	@GetMapping("/estado")
+	@GetMapping("/estado/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("estado", estadoService.listAllEstado());
 		return "Dashboard/estado/estadoListar";
 	}
 
-	@GetMapping("/estado/nuevo")
+	@GetMapping("/estado/crear")
 	public String formularioGuardar(Model modelo) {
 		Estado estado = new Estado();
 		modelo.addAttribute("estado", estado);
@@ -43,7 +43,7 @@ public class EstadoController {
 		return "Dashboard/estado/estadoEditar";
 	}
 	
-	@PostMapping("/estado/{id}")
+	@PostMapping("/estado/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("estado") Estado estado) {
 		Estado estadoExistente = estadoService.findById(id);
 		estadoExistente.setIdEstado(id);
@@ -52,7 +52,7 @@ public class EstadoController {
 		return "redirect:/Dashboard/estado/estadoListar";
 	}
 	
-	@GetMapping("/estado/{id}")
+	@GetMapping("/estado/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		estadoService.deleteEstado(id);
 		return "redirect:/Dashboard/estado/estadoListar";

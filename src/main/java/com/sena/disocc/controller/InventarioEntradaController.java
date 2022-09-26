@@ -19,32 +19,32 @@ public class InventarioEntradaController {
 	@Autowired
 	InventarioEntradaService inventarioEntradaService;
 
-	@GetMapping("/inventarioEntrada")
+	@GetMapping("/inventarioEntrada/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("inventarioEntrada", inventarioEntradaService.listAllInventarioEntradas());
-		return "Dashboard/inventarioentrada/inventarioEntradaListar";
+		return "Dashboard/inventarioentrada/inventarioentradaListar";
 	}
 
-	@GetMapping("/inventarioEntrada/nuevo")
+	@GetMapping("/inventarioEntrada/crear")
 	public String formularioGuardar(Model modelo) {
 		InventarioEntradas inventarioEntrada = new InventarioEntradas();
 		modelo.addAttribute("inventarioEntrada", inventarioEntrada);
-		return "Dashboard/inventarioentrada/inventarioEntradaCrear";
+		return "Dashboard/inventarioentrada/inventarioentradaCrear";
 	}
 
 	@PostMapping("/inventarioEntrada")
 	public String guardar(@ModelAttribute("inventarioEntrada") InventarioEntradas inventarioEntradas) {
 		inventarioEntradaService.saveInventarioEntradas(inventarioEntradas);
-		return "redirect:/Dashboard/inventarioentrada/inventarioEntradaListar";
+		return "redirect:/Dashboard/inventarioentrada/inventarioentradaListar";
 	}
 	
 	@GetMapping("/inventarioEntrada/editar/{id}")
 	public String formularioEditar(@PathVariable int id, Model modelo) {
 		modelo.addAttribute("inventarioEntrada", inventarioEntradaService.findById(id));
-		return "Dashboard/inventarioentrada/inventarioEntradaListar";
+		return "Dashboard/inventarioentrada/inventarioentradaListar";
 	}
 	
-	@PostMapping("/inventarioEntrada/{id}")
+	@PostMapping("/inventarioEntrada/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("inventarioEntrada") InventarioEntradas inventarioEntradas) {
 		InventarioEntradas inventarioEntradaExistente = inventarioEntradaService.findById(id);
 		inventarioEntradaExistente.setIdInventarioEntrada(id);
@@ -53,13 +53,13 @@ public class InventarioEntradaController {
 		inventarioEntradaExistente.setCantidad(inventarioEntradas.getCantidad());
 		inventarioEntradaExistente.setTotal(inventarioEntradas.getTotal());
 		inventarioEntradaService.saveInventarioEntradas(inventarioEntradaExistente);
-		return "redirect:/Dashboard/inventarioentrada/inventarioEntradaListar";
+		return "redirect:/Dashboard/inventarioentrada/inventarioentradaListar";
 	}
 	
-	@GetMapping("/inventarioEntrada/{id}")
+	@GetMapping("/inventarioEntrada/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		inventarioEntradaService.deleteInventarioEntradas(id);
-		return "redirect:/Dashboard/inventarioentrada/inventarioEntradaListar";
+		return "redirect:/Dashboard/inventarioentrada/inventarioentradaListar";
 	}
 
 }

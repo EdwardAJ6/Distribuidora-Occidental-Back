@@ -20,13 +20,13 @@ public class PeticionController {
 	@Autowired
 	PeticionService peticionService;
 
-	@GetMapping("/peticion")
+	@GetMapping("/peticion/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("peticion", peticionService.listAllPeticiones());
 		return "Dashboard/peticion/peticionListar";
 	}
 
-	@GetMapping("/peticion/nuevo")
+	@GetMapping("/peticion/crear")
 	public String formularioGuardar(Model modelo) {
 		Peticion peticion = new Peticion();
 		modelo.addAttribute("Peticion", peticion);
@@ -45,7 +45,7 @@ public class PeticionController {
 		return "Dashboard/peticion/peticionEditar";
 	}
 	
-	@PostMapping("/peticion/{id}")
+	@PostMapping("/peticion/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("peticion") Peticion peticion) {
 		Peticion peticionExistente = peticionService.findById(id);
 		peticionExistente.setIdPeticion(id);
@@ -56,7 +56,7 @@ public class PeticionController {
 		return "redirect:/Dashboard/peticion/peticionListar";
 	}
 	
-	@GetMapping("/peticion/{id}")
+	@GetMapping("/peticion/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		peticionService.eliminar(id);
 		return "redirect:/Dashboard/peticion/peticionListar";

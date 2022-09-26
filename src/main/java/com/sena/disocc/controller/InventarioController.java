@@ -20,13 +20,13 @@ public class InventarioController {
 	@Autowired
 	InventarioService inventarioService;
 
-	@GetMapping("/inventario")
+	@GetMapping("/inventario/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("inventario", inventarioService.listAllInventarios());
 		return "Dashboard/inventario/inventarioListar";
 	}
 
-	@GetMapping("/inventario/nuevo")
+	@GetMapping("/inventario/crear")
 	public String formularioGuardar(Model modelo) {
 		Inventarios inventario = new Inventarios();
 		modelo.addAttribute("inventario", inventario);
@@ -45,7 +45,7 @@ public class InventarioController {
 		return "Dashboard/estado/inventarioEditar";
 	}
 	
-	@PostMapping("/inventario/{id}")
+	@PostMapping("/inventario/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("estado") Inventarios inventarios) {
 		Inventarios inventarioExistente = inventarioService.findById(id);
 		inventarioExistente.setIdInventario(id);
@@ -54,7 +54,7 @@ public class InventarioController {
 		return "redirect:/Dashboard/inventario/inventarioListar";
 	}
 	
-	@GetMapping("/inventario/{id}")
+	@GetMapping("/inventario/editar/{id}")
 	public String eliminar(@PathVariable int id) {
 		inventarioService.deleteInventarios(id);
 		return "redirect:/Dashboard/inventario/inventarioListar";

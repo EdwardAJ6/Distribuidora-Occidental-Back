@@ -19,13 +19,13 @@ public class RolController {
 	@Autowired
 	RolService rolService;
 	
-	@GetMapping("/rol")
+	@GetMapping("/rol/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("rol", rolService.listAllRol());
 		return "Dashboard/rol/rolListar";
 	}
 
-	@GetMapping("/rol/nuevo")
+	@GetMapping("/rol/crear")
 	public String formularioGuardar(Model modelo) {
 		Rol rol = new Rol();
 		modelo.addAttribute("rol", rol);
@@ -44,7 +44,7 @@ public class RolController {
 		return "Dashboard/rol/rolEditar";
 	}
 	
-	@PostMapping("/rol/{id}")
+	@PostMapping("/rol/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("rol") Rol rol) {
 		Rol rolExistente = rolService.findById(id);
 		rolExistente.setIdRol(id);
@@ -53,7 +53,7 @@ public class RolController {
 		return "redirect:/Dashboard/rol/rolListar";
 	}
 	
-	@GetMapping("/rol/{id}")
+	@GetMapping("/rol/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		rolService.deleteRol(id);
 		return "redirect:/Dashboard/rol/rolListar";

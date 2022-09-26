@@ -20,13 +20,13 @@ public class MarcasController {
 	@Autowired
 	MarcasService marcasService;
 
-	@GetMapping("/marca")
+	@GetMapping("/marca/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("marca", marcasService.listAllMarcas());
 		return "Dashboard/marca/marcaListar";
 	}
 
-	@GetMapping("/marca/nuevo")
+	@GetMapping("/marca/crear")
 	public String formularioGuardar(Model modelo) {
 		Marcas marca = new Marcas();
 		modelo.addAttribute("marca", marca);
@@ -45,7 +45,7 @@ public class MarcasController {
 		return "Dashboard/marca/marcaEditar";
 	}
 	
-	@PostMapping("/marca/{id}")
+	@PostMapping("/marca/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("marca") Marcas marcas) {
 		Marcas marcaExistente = marcasService.findById(id);
 		marcaExistente.setIdMarca(id);
@@ -54,7 +54,7 @@ public class MarcasController {
 		return "redirect:/Dashboard/marca/marcaListar";
 	}
 	
-	@GetMapping("/marca/{id}")
+	@GetMapping("/marca/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		marcasService.deleteMarcas(id);
 		return "redirect:/Dashboard/marca/marcaListar";

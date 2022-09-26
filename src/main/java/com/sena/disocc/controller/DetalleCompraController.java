@@ -18,32 +18,32 @@ public class DetalleCompraController {
 	@Autowired
 	DetalleCompraService detalleCompraService;
 
-	@GetMapping("/detalleCompra")
+	@GetMapping("/detalleCompra/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("detalleCompra", detalleCompraService.listAllDetallesCompra());
-		return "Dashboard/detallecompras/detalleCompraListar";
+		return "Dashboard/detallecompras/detallecomprasListar";
 	}
 
-	@GetMapping("/detalleCompra/nuevo")
+	@GetMapping("/detalleCompra/crear")
 	public String formularioGuardar(Model modelo) {
 		DetalleCompra detalleCompra = new DetalleCompra();
 		modelo.addAttribute("detalleCompra", detalleCompra);
-		return "Dashboard/detallecompras/detalleCompraCrear";
+		return "Dashboard/detallecompras/detallecomprasCrear";
 	}
 
 	@PostMapping("/detalleCompra")
 	public String guardar(@ModelAttribute("detalleCompra") DetalleCompra detalleCompra) {
 		detalleCompraService.saveDetalleCompra(detalleCompra);
-		return "redirect:/Dashboard/detallecompras/detalleCompraListar";
+		return "redirect:/Dashboard/detallecompras/detallecomprasListar";
 	}
 
 	@GetMapping("/detalleCompra/editar/{id}")
 	public String formularioEditar(@PathVariable int id, Model modelo) {
 		modelo.addAttribute("detalleCompra", detalleCompraService.findById(id));
-		return "Dashboard/detallecompras/detalleCompraEditar";
+		return "Dashboard/detallecompras/detallecomprasEditar";
 	}
 
-	@PostMapping("/detalleCompra/{id}")
+	@PostMapping("/detalleCompra/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("detalleCompra") DetalleCompra detalleCompra) {
 		DetalleCompra detalleCompraExitente = detalleCompraService.findById(id);
 		detalleCompraExitente.setIdCompra(id);
@@ -54,12 +54,12 @@ public class DetalleCompraController {
 		detalleCompraExitente.setIva(detalleCompra.getIva());
 		detalleCompraExitente.setTotal(detalleCompra.getTotal());
 		detalleCompraService.saveDetalleCompra(detalleCompraExitente);
-		return "redirect:/Dashboard/detallecompras/detalleCompraListar";
+		return "redirect:/Dashboard/detallecompras/detallecomprasListar";
 	}
 
-	@GetMapping("/detalleCompra/{id}")
+	@GetMapping("/detalleCompra/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		detalleCompraService.deleteDetalleCompra(id);
-		return "redirect:/Dashboard/detallecompras/detalleCompraListar";
+		return "redirect:/Dashboard/detallecompras/detallecomprasListar";
 	}
 }

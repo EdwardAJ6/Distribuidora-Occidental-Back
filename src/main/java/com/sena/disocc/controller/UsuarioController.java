@@ -20,32 +20,32 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService ususervice;
 	
-	@GetMapping("/usuario")
+	@GetMapping("/usuario/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("usuario", ususervice.listAllUsuarios());
-		return "Dashboard/usuarios/usuarioListar";
+		return "Dashboard/usuarios/usuariosListar";
 	}
 
-	@GetMapping("/usuario/nuevo")
+	@GetMapping("/usuario/crear")
 	public String formularioGuardar(Model modelo) {
 		Usuario usuario = new Usuario();
 		modelo.addAttribute("usuario", usuario);
-		return "Dashboard/usuarios/usuarioCrear";
+		return "Dashboard/usuarios/usuariosCrear";
 	}
 
 	@PostMapping("/usuario")
 	public String guardar(@ModelAttribute("usuario") Usuario usuario) {
 		ususervice.saveUsuario(usuario);
-		return "redirect:/Dashboard/usuarios/usuarioListar";
+		return "redirect:/Dashboard/usuarios/usuariosListar";
 	}
 	
 	@GetMapping("/usuario/editar/{id}")
 	public String formularioEditar(@PathVariable int id, Model modelo) {
 		modelo.addAttribute("usuario", ususervice.findById(id));
-		return "Dashboard/usuarios/usuarioEditar";
+		return "Dashboard/usuarios/usuariosEditar";
 	}
 	
-	@PostMapping("/usuario/{id}")
+	@PostMapping("/usuario/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("usuario") Usuario usuario) {
 		Usuario usuarioExistente = ususervice.findById(id);
 		usuarioExistente.setIdUsuario(id);
@@ -62,12 +62,12 @@ public class UsuarioController {
 		usuarioExistente.setIdRol(usuario.getIdRol());
 		usuarioExistente.setIdEstado(usuario.getIdEstado());
 		ususervice.saveUsuario(usuarioExistente);
-		return "redirect:/Dashboard/usuarios/usuarioListar";
+		return "redirect:/Dashboard/usuarios/usuariosListar";
 	}
 	
-	@GetMapping("/usuario/{id}")
+	@GetMapping("/usuario/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		ususervice.deleteUsuario(id);
-		return "redirect:/Dashboard/usuarios/usuarioListar";
+		return "redirect:/Dashboard/usuarios/usuariosListar";
 	}
 }

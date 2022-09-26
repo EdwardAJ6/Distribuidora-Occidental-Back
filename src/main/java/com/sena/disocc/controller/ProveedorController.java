@@ -20,13 +20,13 @@ public class ProveedorController {
 	@Autowired
 	ProveedorService proveedorService;
 
-	@GetMapping("/proveedor")
+	@GetMapping("/proveedor/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("proveedor", proveedorService.listAllProveedor());
 		return "proveedorListar";
 	}
 
-	@GetMapping("/proveedor/nuevo")
+	@GetMapping("/proveedor/crear")
 	public String formularioGuardar(Model modelo) {
 		Proveedor proveedor = new Proveedor();
 		modelo.addAttribute("proveedor", proveedor);
@@ -45,7 +45,7 @@ public class ProveedorController {
 		return "Dashboard/proveedor/proveedorEditar";
 	}
 	
-	@PostMapping("/proveedor/{id}")
+	@PostMapping("/proveedor/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("proveedor") Proveedor proveedor) {
 		Proveedor proveedorExistente = proveedorService.findById(id);
 		proveedorExistente.setIdProveedor(id);
@@ -58,7 +58,7 @@ public class ProveedorController {
 		return "redirect:/Dashboard/proveedor/proveedorListar";
 	}
 	
-	@GetMapping("/proveedor/{id}")
+	@GetMapping("/proveedor/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		proveedorService.deleteProveedor(id);
 		return "redirect:/Dashboard/proveedor/proveedorListar";

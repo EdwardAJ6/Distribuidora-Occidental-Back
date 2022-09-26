@@ -19,32 +19,32 @@ public class ProductoController {
 	@Autowired
 	ProductoService productoService;
 
-	@GetMapping("/producto")
+	@GetMapping("/producto/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("prducto", productoService.listAllProductos());
-		return "Dashboard/productos/productoListar";
+		return "Dashboard/productos/productosListar";
 	}
 
-	@GetMapping("/producto/nuevo")
+	@GetMapping("/producto/crear")
 	public String formularioGuardar(Model modelo) {
 		Productos producto = new Productos();
 		modelo.addAttribute("producto", producto);
-		return "Dashboard/productos/productoCrear";
+		return "Dashboard/productos/productosCrear";
 	}
 
 	@PostMapping("/producto")
 	public String guardar(@ModelAttribute("producto") Productos productos) {
 		productoService.saveProductos(productos);
-		return "redirect:/Dashboard/productos/productoListar";
+		return "redirect:/Dashboard/productos/productosListar";
 	}
 	
 	@GetMapping("/producto/editar/{id}")
 	public String formularioEditar(@PathVariable int id, Model modelo) {
 		modelo.addAttribute("producto", productoService.findById(id));
-		return "Dashboard/productos/productoEditar";
+		return "Dashboard/productos/productosEditar";
 	}
 	
-	@PostMapping("/producto/{id}")
+	@PostMapping("/producto/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("producto") Productos productos) {
 		Productos productoExistente = productoService.findById(id);
 		productoExistente.setIdProducto(id);
@@ -56,12 +56,12 @@ public class ProductoController {
 		productoExistente.setMarca(productos.getMarca());
 		productoExistente.setCategoriaProducto(productos.getCategoriaProducto());
 		productoService.saveProductos(productoExistente);
-		return "redirect:/Dashboard/productos/productoListar";
+		return "redirect:/Dashboard/productos/productosListar";
 	}
 	
-	@GetMapping("/producto/{id}")
+	@GetMapping("/producto/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		productoService.deleteProductos(id);
-		return "redirect:/Dashboard/productos/productoListar";
+		return "redirect:/Dashboard/productos/productosListar";
 	}
 }

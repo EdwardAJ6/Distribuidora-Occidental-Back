@@ -19,43 +19,43 @@ public class TipoPeticionController {
 	@Autowired
 	TipoPeticionService tipoPeticionService;
 	
-	@GetMapping("/tipoPeticion")
+	@GetMapping("/tipoPeticion/listar")
 	public String list(Model modelo) {
 		modelo.addAttribute("tipoPeticion", tipoPeticionService.listAllTipoPeticiones());
-		return "Dashboard/tipopeticion/tipoPeticionListar";
+		return "Dashboard/tipopeticion/tipopeticionListar";
 	}
 
-	@GetMapping("/tipoPeticion/nuevo")
+	@GetMapping("/tipoPeticion/crear")
 	public String formularioGuardar(Model modelo) {
 		TipoPeticion tipoPeticion = new TipoPeticion();
 		modelo.addAttribute("tipoPeticion", tipoPeticion);
-		return "Dashboard/tipopeticion/tipoPeticionCrear";
+		return "Dashboard/tipopeticion/tipopeticionCrear";
 	}
 
 	@PostMapping("/tipoPeticion")
 	public String guardar(@ModelAttribute("tipoPeticion") TipoPeticion tipoPeticion) {
 		tipoPeticionService.saveTipoPeticiones(tipoPeticion);
-		return "redirect:/Dashboard/tipopeticion/tipoPeticionListar";
+		return "redirect:/Dashboard/tipopeticion/tipopeticionListar";
 	}
 	
 	@GetMapping("/tipoPeticion/editar/{id}")
 	public String formularioEditar(@PathVariable int id, Model modelo) {
 		modelo.addAttribute("tipoPeticion", tipoPeticionService.findById(id));
-		return "Dashboard/tipopeticion/tipoPeticionEditar";
+		return "Dashboard/tipopeticion/tipopeticionEditar";
 	}
 	
-	@PostMapping("/tipoPeticion/{id}")
+	@PostMapping("/tipoPeticion/editar/{id}")
 	public String editar(@PathVariable int id, @ModelAttribute("tipoPeticion") TipoPeticion tipoPeticion) {
 		TipoPeticion tipoPeticionExistente = tipoPeticionService.findById(id);
 		tipoPeticionExistente.setIdTipoPeticion(id);
 		tipoPeticionExistente.setNombre(tipoPeticion.getNombre());
 		tipoPeticionService.saveTipoPeticiones(tipoPeticionExistente);
-		return "redirect:/Dashboard/tipopeticion/tipoPeticionListar";
+		return "redirect:/Dashboard/tipopeticion/tipopeticionListar";
 	}
 	
-	@GetMapping("/tipoPeticion/{id}")
+	@GetMapping("/tipoPeticion/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		tipoPeticionService.deleteTipoPeticiones(id);
-		return "redirect:/Dashboard/tipopeticion/tipoPeticionListar";
+		return "redirect:/Dashboard/tipopeticion/tipopeticionListar";
 	}
 }
