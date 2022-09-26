@@ -64,8 +64,6 @@ public class ProductoController {
 		productoExistente.setPrecioUnidad(productos.getPrecioUnidad());
 		productoExistente.setStockDisponible(productos.getStockDisponible());
 		productoExistente.setDescripcion(productos.getDescripcion());
-		productoExistente.setMarca(productos.getMarca());
-		productoExistente.setCategoriaProducto(productos.getCategoriaProducto());
 		productoService.saveProductos(productoExistente);
 		
 		return "redirect:/Dashboard/admin/producto/listar";

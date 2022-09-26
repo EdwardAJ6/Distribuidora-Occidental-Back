@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sena.disocc.modelo.Usuario;
+import com.sena.disocc.service.EstadoService;
+import com.sena.disocc.service.RolService;
+import com.sena.disocc.service.TipoDocumentoService;
 import com.sena.disocc.service.UsuarioService;
 
 @Controller
@@ -19,6 +22,15 @@ public class UsuarioController {
 
 	@Autowired
 	UsuarioService ususervice;
+	
+	@Autowired
+	RolService rolService;
+	
+	@Autowired
+	EstadoService estadoService;
+	
+	@Autowired
+	TipoDocumentoService documentoService;
 	
 	@GetMapping("/usuario/listar")
 	public String list(Model modelo) {
@@ -30,6 +42,9 @@ public class UsuarioController {
 	public String formularioGuardar(Model modelo) {
 		Usuario usuario = new Usuario();
 		modelo.addAttribute("usuario", usuario);
+		modelo.addAttribute("tipodoc", documentoService.listAllTipoDoc());
+		modelo.addAttribute("estado", estadoService.listAllEstado());
+		modelo.addAttribute("rol", rolService.listAllRol());
 		return "Dashboard/usuarios/usuariosCrear";
 	}
 
@@ -42,6 +57,9 @@ public class UsuarioController {
 	@GetMapping("/usuario/editar/{id}")
 	public String formularioEditar(@PathVariable int id, Model modelo) {
 		modelo.addAttribute("usuario", ususervice.findById(id));
+		modelo.addAttribute("tipodoc", documentoService.listAllTipoDoc());
+		modelo.addAttribute("estado", estadoService.listAllEstado());
+		modelo.addAttribute("rol", rolService.listAllRol());
 		return "Dashboard/usuarios/usuariosEditar";
 	}
 	

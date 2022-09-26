@@ -277,9 +277,9 @@
                 </a>
                 <div id="respuesta" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{Dashboard/admin/respuesta/listar}">Listar</a>
-                        <a class="collapse-item" th:href="@{Dashboard/admin/respuesta/listar}">Crear</a>
-                        <a class="collapse-item" th:href="@{Dashboard/admin/respuesta/listar}">Editar</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/respuesta/listar}">Listar</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/respuesta/listar}">Crear</a>
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/respuesta/listar}">Editar</a>
 
                     </div>
                 </div>
@@ -449,11 +449,11 @@
                                             <h6 class="m-0 font-weight-bold text-primary">Crear Tipo de peticion</h6>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                            <form th:action="@{/Dashboard/admin/tipoPeticion}" th:object="${tipoPeticion}" method="POST">
                                                 <div class="form-row">
                                                   <div class="form-group col-md-6">
                                                     <label>Nombre de la peticion</label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" class="form-control" th:field="*{nombre}">
                                                   </div>
                                                  
                                                 </div>

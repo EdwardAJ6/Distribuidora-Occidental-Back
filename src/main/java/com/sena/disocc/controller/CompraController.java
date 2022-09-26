@@ -38,7 +38,7 @@ public class CompraController {
 	}
 
 	@PostMapping("/compra")
-	public String guardar(@ModelAttribute("compra") Compra compra ,@ModelAttribute("proveedor") Proveedor proveedor) {
+	public String guardar(@ModelAttribute("compra") Compra compra) {
 		compraService.saveCompra(compra);
 		return "redirect:/Dashboard/admin/compra/listar";
 	}
