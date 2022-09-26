@@ -35,7 +35,7 @@ public class TipoPeticionController {
 	@PostMapping("/tipoPeticion")
 	public String guardar(@ModelAttribute("tipoPeticion") TipoPeticion tipoPeticion) {
 		tipoPeticionService.saveTipoPeticiones(tipoPeticion);
-		return "redirect:/Dashboard/tipopeticion/tipopeticionListar";
+		return "redirect:/Dashboard/admin/tipoPeticion/listar";
 	}
 	
 	@GetMapping("/tipoPeticion/editar/{id}")
@@ -50,12 +50,12 @@ public class TipoPeticionController {
 		tipoPeticionExistente.setIdTipoPeticion(id);
 		tipoPeticionExistente.setNombre(tipoPeticion.getNombre());
 		tipoPeticionService.saveTipoPeticiones(tipoPeticionExistente);
-		return "redirect:/Dashboard/tipopeticion/tipopeticionListar";
+		return "redirect:/Dashboard/admin/tipoPeticion/listar";
 	}
 	
 	@GetMapping("/tipoPeticion/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		tipoPeticionService.deleteTipoPeticiones(id);
-		return "redirect:/Dashboard/tipopeticion/tipopeticionListar";
+		return "redirect:/Dashboard/admin/tipoPeticion/listar";
 	}
 }

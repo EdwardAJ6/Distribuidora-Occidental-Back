@@ -18,9 +18,9 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="@{../../../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../../../css/sb-admin-2.min.css" rel="stylesheet">
      <!-- Custom styles for this page -->
-     <link href="@{../../../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+     <link href="../../../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 
 </head>
@@ -449,11 +449,11 @@
                                             <h6 class="m-0 font-weight-bold text-primary">Editar Tipo de peticion</h6>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                            <form th:action="@{/Dashboard/admin/tipoPeticion/editar/{id}(id=${tipoPeticion.idTipoPeticion})}" th:object="${tipoPeticion}" method="post">
                                                 <div class="form-row">
                                                   <div class="form-group col-md-6">
                                                     <label>Nombre de la peticion</label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" class="form-control" th:field="*{nombre}">
                                                   </div>
                                                  
                                                 </div>

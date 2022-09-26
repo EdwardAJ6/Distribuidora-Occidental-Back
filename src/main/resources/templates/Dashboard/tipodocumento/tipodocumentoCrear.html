@@ -449,15 +449,15 @@
                                             <h6 class="m-0 font-weight-bold text-primary">Crear Tipo de Documento</h6>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                            <form th:action="@{/Dashboard/admin/tipoDocumento}" th:object="${tipoDocumento}" method="POST">
                                                 <div class="form-row">
                                                   <div class="form-group col-md-6">
                                                     <label>Nombre del documento</label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" class="form-control"th:field="*{nombreDocumento}" >
                                                   </div>
                                                   <div class="form-group col-md-6">
                                                     <label>Siglas</label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" class="form-control"th:field="*{siglas}" >
                                                   </div>                
                                                 </div>
                                                

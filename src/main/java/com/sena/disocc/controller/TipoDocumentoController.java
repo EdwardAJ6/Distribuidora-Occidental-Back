@@ -35,7 +35,7 @@ public class TipoDocumentoController {
 	@PostMapping("/tipoDocumento")
 	public String guardar(@ModelAttribute("tipoDocumento") TipoDocumento tipoDocumento) {
 		tdService.saveTipoDoc(tipoDocumento);
-		return "redirect:/Dashboard/tipodocumento/tipodocumentoListar";
+		return "redirect:/Dashboard/admin/tipoDocumento/listar";
 	}	
 	
 	@GetMapping("/tipoDocumento/editar/{id}")
@@ -51,13 +51,13 @@ public class TipoDocumentoController {
 		tipoDocumentoExistente.setNombreDocumento(tipoDocumento.getNombreDocumento());
 		tipoDocumentoExistente.setSiglas(tipoDocumento.getSiglas());
 		tdService.saveTipoDoc(tipoDocumentoExistente);
-		return "redirect:/Dashboard/tipodocumento/tipodocumentoListar";
+		return "redirect:/Dashboard/admin/tipoDocumento/listar";
 	}
 	
 	@GetMapping("/tipoDocumento/eliminar/{id}")
 	public String eliminar(@PathVariable int id) {
 		tdService.deleteTipoDoc(id);
-		return "redirect:/Dashboard/tipodocumento/tipodocumentoListar";
+		return "redirect:/Dashboard/admin/tipoDocumento/listar";
 	}
 }
 

@@ -115,9 +115,9 @@
                 </a>
                 <div id="detalleventas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/listar">Listar</a>
-                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/crear">Crear</a>
-                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/editar">Editar</a>
+                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/listar}">Listar</a>
+                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/crear}">Crear</a>
+                        <a class="collapse-item" th:href="@{/DashBoard/admin/detalleVenta/editar}">Editar</a>
 
                     </div>
                 </div>
@@ -449,15 +449,15 @@
                                             <h6 class="m-0 font-weight-bold text-primary">Editar Tipo de Documento</h6>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                            <form th:action="@{/Dashboard/admin/tipoDocumento/editar/{id}(id=${tipoDocumento.idTipoDocumento})}" th:object="${tipoDocumento}" method="post">
                                                 <div class="form-row">
                                                   <div class="form-group col-md-6">
                                                     <label>Nombre del documento</label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" class="form-control" th:field="*{nombreDocumento}" >
                                                   </div>
                                                   <div class="form-group col-md-6">
                                                     <label>Siglas</label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" class="form-control"th:field="*{siglas}" >
                                                   </div>                
                                                 </div>
                                                
