@@ -462,9 +462,9 @@
                                              </tr>
                                          </thead>                                
                                          <tbody>
-                                             <tr>
-                                                 <td>Id</td>
-                                                 <td>Nombre</td>
+                                             <tr th:each="categorias : ${categorias}">
+                                                 <td th:text="${categorias.idCategoria}">Id</td>
+                                                 <td th:text="${categorias.idNombreCategoria}">Nombre</td>
                                                  <td>
                                                     <a href="##" class="btn btn-danger btn-circle btn-sm">
                                                         <i class="fas fa-trash"></i>
