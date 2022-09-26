@@ -14,7 +14,7 @@ import com.sena.disocc.service.UsuarioService;
 
 @Controller
 @RequestMapping("/Dashboard/usuario")
-public class Uusuario {
+public class UusuarioController {
 	
 	@Autowired
 	UsuarioService ususervice;
