@@ -462,34 +462,19 @@
                                             <th>Total</th>
                                             <th>Pago realizado</th>
                                             <th>Proveedor</th>
-                                            <th>Aciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Id</td>
-                                            <td>Fecha</td>
-                                            <td>Total</td>
-                                            <td>Pago realizado</td>
-                                            <td>Proveedor</td>
-                                            <td>
-                                                <a href="##" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                                <a href="##" class="btn btn-info btn-circle btn-sm">
-                                                    <i class="fas fa-info-circle"></i>
-                                                </a>
-                                            </td>
+                                        <tr th:each="compra:${compra}">
+                                            <td th:text="${compra.idCompra}">Id</td>
+                                            <td th:text="${compra.fecha}">Fecha</td>
+                                            <td th:text="${compra.total}">Total</td>
+                                            <td th:text="${compra.pagoRealizado}">Pago realizado</td>
+                                            <td th:text="${compra.proveedor.nombreProveedor}">Proveedor</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="#" class="btn btn-success btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-check"></i>
-                                </span>
-                                <span class="text">Crear</span>
-                            </a>
                         </div>
                     </div>
 

@@ -461,14 +461,14 @@
                                              </tr>
                                          </thead>                                
                                          <tbody>
-                                             <tr>
-                                                 <td>Id</td>
-                                                 <td>Nombre</td>
+                                             <tr th:each="tipopeticion:${tipoPeticion}">
+                                                 <td th:text="${tipopeticion.idTipoPeticion}">Id</td>
+                                                 <td th:text="${tipopeticion.nombre}">Nombre</td>
                                                  <td>
-                                                    <a href="##" class="btn btn-danger btn-circle btn-sm">
+                                                    <a th:href="@{eliminar/{id}(id=${tipopeticion.idTipoPeticion})}" class="btn btn-danger btn-circle btn-sm">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
-                                                    <a href="##" class="btn btn-info btn-circle btn-sm">
+                                                    <a th:href="@{editar/{id}(id=${tipopeticion.idTipoPeticion})}" class="btn btn-info btn-circle btn-sm">
                                                         <i class="fas fa-info-circle"></i>
                                                     </a>
                                                  </td>
@@ -477,7 +477,7 @@
                                          </tbody>
                                      </table>
                                  </div>
-                                 <a href="#" class="btn btn-success btn-icon-split">
+                                 <a th:href="@{crear}" class="btn btn-success btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-check"></i>
                                     </span>

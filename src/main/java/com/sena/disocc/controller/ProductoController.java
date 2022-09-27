@@ -29,7 +29,7 @@ public class ProductoController {
 
 	@GetMapping("/producto/listar")
 	public String list(Model modelo) {
-		modelo.addAttribute("prducto", productoService.listAllProductos());
+		modelo.addAttribute("producto", productoService.listAllProductos());
 		return "Dashboard/productos/productosListar";
 	}
 

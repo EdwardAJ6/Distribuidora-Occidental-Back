@@ -444,12 +444,12 @@
                 <div class="container-fluid">
 
                          <!-- Page Heading -->
-                         <h1 class="h3 mb-2 text-gray-800">Categoria Producto</h1>
+                         <h1 class="h3 mb-2 text-gray-800">Usuarios</h1>
                         
                          <!-- DataTales Example -->
                          <div class="card shadow mb-4">
                              <div class="card-header py-3">
-                                 <h6 class="m-0 font-weight-bold text-primary">Lista de Categorias de los productos</h6>
+                                 <h6 class="m-0 font-weight-bold text-primary">Lista de usuarios</h6>
                              </div>
                              <div class="card-body">
                                  <div class="table-responsive">
@@ -462,7 +462,7 @@
                                                  <th>Primer Apellido</th>
                                                  <th>Segundo Apellido</th>
                                                  <th>Numero de documento</th>
-                                                 <th>Dirrecion</th>
+                                                 <th>Direcion</th>
                                                  <th>Telefono</th>
                                                  <th>Correo</th>
                                                  <th>Contraseña</th>
@@ -473,25 +473,22 @@
                                              </tr>
                                          </thead>                                
                                          <tbody>
-                                             <tr>
-                                                 <td>Id</td>
-                                                 <td>Primer Nombre</td>
-                                                 <td>Segundo Nombre</td>
-                                                 <td>Primer Apellido</td>
-                                                 <td>Segundo Apellido</td>
-                                                 <td>Numero de documento</td>
-                                                 <td>Dirrecion</td>
-                                                 <td>Telefono</td>
-                                                 <td>Correo</td>
-                                                 <td>Contraseña</td>
-                                                 <td>Rol</td>
-                                                 <td>Tipo de documento</td>
-                                                 <td>Estado</td>
+                                             <tr th:each="usuario:${usuario}">
+                                                 <td th:text="${usuario.idUsuario}">Id</td>
+                                                 <td th:text="${usuario.primerNombre}">Primer Nombre</td>
+                                                 <td th:text="${usuario.segundoNombre}">Segundo Nombre</td>
+                                                 <td th:text="${usuario.primerApellido}">Primer Apellido</td>
+                                                 <td th:text="${usuario.segundoApellido}">Segundo Apellido</td>
+                                                 <td th:text="${usuario.numeroDocumento}">Numero de documento</td>
+                                                 <td th:text="${usuario.direccion}">Direcion</td>
+                                                 <td th:text="${usuario.telefono}">Telefono</td>
+                                                 <td th:text="${usuario.correo}">Correo</td>
+                                                 <td th:text="${usuario.contrasena}">Contraseña</td>
+                                                 <td th:text="${usuario.idRol.idRol}">Rol</td>
+                                                 <td th:text="${usuario.tipoDocumento.idTipoDocumento}">Tipo de documento</td>
+                                                 <td th:text="${usuario.idEstado.idEstado}">Estado</td>
                                                  <td>
-                                                    <a href="##" class="btn btn-danger btn-circle btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                    <a href="##" class="btn btn-info btn-circle btn-sm">
+                                                    <a th:href="@{editar/{id}(id=${usuario.idUsuario})}" class="btn btn-info btn-circle btn-sm">
                                                         <i class="fas fa-info-circle"></i>
                                                     </a>
                                                  </td>
@@ -499,12 +496,6 @@
                                          </tbody>
                                      </table>
                                  </div>
-                                 <a href="#" class="btn btn-success btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-check"></i>
-                                    </span>
-                                    <span class="text">Crear</span>
-                                </a>
                              </div>
                          </div>
      

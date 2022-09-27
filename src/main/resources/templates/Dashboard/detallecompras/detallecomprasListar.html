@@ -464,39 +464,24 @@
                                                  <th>Total</th>
                                                  <th>Id de compra</th>
                                                  <th>Id del producto</th>
-                                                 <th>Acciones</th>
                                              </tr>
                                          </thead>                                
                                          <tbody>
-                                             <tr>
-                                                <td>Id</td>
-                                                <td>Fecha</td>
-                                                <td>Precio del producto</td>
-                                                <td>Cantidad</td>
-                                                <td>Subtotal</td>
-                                                <td>Iva</td>
-                                                <td>Total</td>
-                                                <td>Id de compra</td>
-                                                <td>Id del producto</td>
-                                                <td>
-                                                    <a href="##" class="btn btn-danger btn-circle btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                    <a href="##" class="btn btn-info btn-circle btn-sm">
-                                                        <i class="fas fa-info-circle"></i>
-                                                    </a>
+                                             <tr th:each="detalleCompra:${detalleCompra}">
+                                                <td th:text="${detalleCompra.idCompra}">Id</td>
+                                                <td th:text="${detalleCompra.fecha}">Fecha</td>
+                                                <td th:text="${detalleCompra.precioProducto}">Precio del producto</td>
+                                                <td th:text="${detalleCompra.cantidad}">Cantidad</td>
+                                                <td th:text="${detalleCompra.subtotal}">Subtotal</td>
+                                                <td th:text="${detalleCompra.iva}">Iva</td>
+                                                <td th:text="${detalleCompra.total}">Total</td>
+                                                <td th:text="${detalleCompra.compra.idCompra}">Id de compra</td>
+                                                <td th:text="${detalleCompra.productos.idProducto}">Id del producto</td>
                                                  </td>
                                              </tr>
-                                            
                                          </tbody>
                                      </table>
                                  </div>
-                                 <a href="#" class="btn btn-success btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-check"></i>
-                                    </span>
-                                    <span class="text">Crear</span>
-                                </a>
                              </div>
                          </div>
      
