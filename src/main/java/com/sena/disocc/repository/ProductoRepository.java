@@ -8,4 +8,7 @@ import com.sena.disocc.modelo.Productos;
 @Repository
 public interface ProductoRepository extends JpaRepository<Productos, Integer> {
 
+	
+    Productos findFirstByCodigo(String codigo);
+
 }

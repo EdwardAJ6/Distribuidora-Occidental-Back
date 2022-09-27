@@ -49,7 +49,6 @@ public class VentaController {
 		Venta ventaExistente = ventaService.findById(id);
 		ventaExistente.setIdVenta(id);
 		ventaExistente.setFecha(venta.getFecha());
-		ventaExistente.setTotal(venta.getTotal());
 		ventaExistente.setPago_realizado(venta.getPago_realizado());
 		ventaExistente.setUsuario(venta.getUsuario());
 		ventaExistente.setProducto(venta.getProducto());
