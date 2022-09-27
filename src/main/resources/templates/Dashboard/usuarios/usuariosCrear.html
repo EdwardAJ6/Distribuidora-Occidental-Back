@@ -449,68 +449,76 @@
                                             <h6 class="m-0 font-weight-bold text-primary">Crear de Categorias de los productos</h6>
                                         </div>
                                         <div class="card-body">
-                                            <form>
-                                                <div class="form-row">
-                                                  <div class="form-group col-md-6">
-                                                    <label>Primer Nombre</label>
-                                                    <input type="text" class="form-control" >
-                                                  </div>
-                                                  <div class="form-group col-md-6">
-                                                    <label>Segundo Nombre</label>
-                                                    <input type="text" class="form-control" >
-                                                  </div>
-                                                  <div class="form-group col-md-6">
-                                                    <label>Primer Apellido</label>
-                                                    <input type="text" class="form-control" >
-                                                  </div>
-                                                  <div class="form-group col-md-6">
-                                                    <label>Segundo Apellido</label>
-                                                    <input type="text" class="form-control" >
-                                                  </div>
-                                                  <div class="form-group col-md-6">
-                                                    <label>Numero de Documento</label>
-                                                    <input type="text" class="form-control" >
-                                                  </div>
-                                                  <div class="form-group col-md-6">
-                                                    <label>Dirrecion</label>
-                                                    <input type="text" class="form-control" >
-                                                  </div>
-                                                  <div class="form-group col-md-6">
-                                                    <label>Telefono</label>
-                                                    <input type="text" class="form-control" >
-                                                  </div>
-                                                  <div class="form-group col-md-6">
-                                                    <label>Correo</label>
-                                                    <input type="email" class="form-control" >
-                                                  </div>
-                                                  <div class="form-group col-md-6">
-                                                    <label>Contraseña</label>
-                                                    <input type="password" class="form-control" >
-                                                  </div>
-                                                  <div class="form-group col-md-6" >
-                                                    <label for="exampleFormControlSelect1">Rol</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                      <option>1</option>
-                                                      <option>2</option>
-                                                    </select>
-                                                  </div>
-                                                  <div class="form-group col-md-6" >
-                                                    <label for="exampleFormControlSelect1">Tipo de Documento</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                      <option>1</option>
-                                                      <option>2</option>
-                                                    </select>
-                                                  </div>
-                                                  <div class="form-group col-md-6" >
-                                                    <label for="exampleFormControlSelect1">Estado</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                      <option>1</option>
-                                                      <option>2</option>
-                                                    </select>
-                                                  </div>
+                            <form th:action="@{/Dashboard/admin/usuario}" th:object="${usuario}" method="POST">
+                            <div class="form-row">
+									<div class="form-group col-md-6">
+										<label>Primer Nombre</label> <input type="text"
+											class="form-control" th:field="*{primerNombre}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Segundo Nombre</label> <input type="text"
+											class="form-control" th:field="*{segundoNombre}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Primer Apellido</label> <input type="text"
+											class="form-control" th:field="*{primerApellido}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Segundo Apellido</label> <input type="text"
+											class="form-control" th:field="*{segundoApellido}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Numero de Documento</label> <input type="text"
+											class="form-control" th:field="*{numeroDocumento}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Dirrecion</label> <input type="text"
+											class="form-control" th:field="*{direccion}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Telefono</label> <input type="text"
+											class="form-control" th:field="*{telefono}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Correo</label> <input type="email" class="form-control"
+											th:field="*{correo}">
+									</div>
+									<div class="form-group col-md-6">
+										<label>Contraseña</label> <input type="password"
+											class="form-control" th:field="*{contrasena}">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="exampleFormControlSelect1">Rol</label> 
+										<select
+											class="form-control" id="exampleFormControlSelect1"
+											th:field="*{idRol}">
+											<option th:each="rol : ${rol}" th:value="${rol.idRol}"
+												th:text="${rol.nomRol}" th:selected="false" />
+										</select>
+									</div>
+									<div class="form-group col-md-6">
+										<label for="exampleFormControlSelect1">Tipo de
+											Documento</label>
+											 <select class="form-control"
+											id="exampleFormControlSelect1" th:field="*{tipoDocumento}">
+											<option th:each="tipodoc : ${tipodoc}"
+												th:value="${tipodoc.idTipoDocumento}"
+												th:text="${tipodoc.nombreDocumento}" th:selected="false" />
+										</select>
+									</div>
+									<div class="form-group col-md-6">
+										<label for="exampleFormControlSelect1">Estado</label> 
+										<select
+											class="form-control" id="exampleFormControlSelect1"
+											th:field="*{idEstado}">
+											<option th:each="estado : ${estado}"
+												th:value="${estado.idEstado}" th:text="${estado.nombre}"
+												th:selected="false" />
+										</select>
+									</div>
 
-                                                 
-                                                </div>
+
+								</div>                                        
                                                
                                                 <button type="submit" class="btn btn-success">Crear</button>
                                             </form>
