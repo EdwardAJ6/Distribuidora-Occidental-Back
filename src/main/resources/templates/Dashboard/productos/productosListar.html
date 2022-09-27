@@ -482,8 +482,8 @@
                                                  <td th:text="${producto.stockDisponible}">Stock</td>
                                                  <td th:text="${producto.descripcion}">Descripcion</td>
                                                  <td th:text="${producto.fechaVencimiento}">Fecha de vencimiento</td>
-                                                 <td th:text="${producto.Marca.idMarca}">Marca</td>
-                                                 <td th:text="${producto.CategoriaProducto.idCategoria}">Categoria</td>
+                                                 <td th:text="${producto.Marca.nombreMarca}">Marca</td>
+                                                 <td th:text="${producto.CategoriaProducto.idNombreCategoria}">Categoria</td>
                                                  <td>
                                                     <a th:href="@{eliminar/{id}(id=${producto.idProducto})}" class="btn btn-danger btn-circle btn-sm">
                                                         <i class="fas fa-trash"></i>
