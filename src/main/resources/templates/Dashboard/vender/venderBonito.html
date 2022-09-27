@@ -13,17 +13,16 @@
 <title>Distribuidora Occidental</title>
 
 <!-- Custom fonts for this template-->
-<link th:href="@{../../../../vendor/fontawesome-free/css/all.min.css}"
+<link href="../../../../vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link th:href="@{../../../../css/sb-admin-2.min.css}" rel="stylesheet">
+<link href="../../../../css/sb-admin-2.min.css" rel="stylesheet">
 <!-- Custom styles for this page -->
-<link
-	th:href="@{../../../../vendor/datatables/dataTables.bootstrap4.min.css}"
+<link href="../../../../vendor/datatables/dataTables.bootstrap4.min.css"
 	rel="stylesheet">
 
 
@@ -56,12 +55,6 @@
 			<li class="nav-item active"><a class="nav-link"
 				th:href="@{/Dashboard/admin}"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-					
-					<li class="nav-item active">
-                <a class="nav-link" th:href="@{/Dashboard/admin/vender}">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Vender</span></a>
-            </li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
@@ -150,11 +143,9 @@
 				<div id="estado" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item"
-							th:href="@{/Dashboard/admin/estado/listar}">Listar</a> <a
-							class="collapse-item" th:href="@{/Dashboard/admin/estado/crear}">Crear</a>
-						<a class="collapse-item"
-							th:href="@{/Dashboard/admin/estado/editar}">Editar</a>
+						<a class="collapse-item" th:href="@{/Dashboard/admin/estado/listar}">Listar</a> <a
+							class="collapse-item" th:href="@{/Dashboard/admin/estado/crear}">Crear</a> <a
+							class="collapse-item" th:href="@{/Dashboard/admin/estado/editar}">Editar</a>
 
 					</div>
 				</div></li>
@@ -171,7 +162,7 @@
 						<a class="collapse-item"
 							th:href="@{/Dashboard/admin/inventarioEntrada/listar}">Listar</a>
 						<a class="collapse-item"
-							th:href="@{/Dashboard/admin/inventaroEntrada/crear}">Crear</a> <a
+							th:href="@{/Dashboard/admin/inventarioEntrada/crear}">Crear</a> <a
 							class="collapse-item"
 							th:href="@{/Dashboard/admin/inventarioEntrada/editar}">Editar</a>
 
@@ -258,9 +249,8 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item"
 							th:href="@{/Dashboard/admin/peticion/listar}">Listar</a> <a
-							class="collapse-item"
-							th:href="@{/Dashboard/admin/peticion/crear}">Crear</a> <a
-							class="collapse-item"
+							class="collapse-item" th:href="@{/Dashboard/admin/peticion/crear}">Crear</a>
+						<a class="collapse-item"
 							th:href="@{/Dashboard/admin/peticion/editar}">Editar</a>
 
 					</div>
@@ -276,9 +266,8 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item"
 							th:href="@{/Dashboard/admin/producto/listar}">Listar</a> <a
-							class="collapse-item"
-							th:href="@{/Dashboard/admin/producto/crear}">Crear</a> <a
-							class="collapse-item"
+							class="collapse-item" th:href="@{/Dashboard/admin/producto/crear}">Crear</a>
+						<a class="collapse-item"
 							th:href="@{/Dashboard/admin/producto/editar}">Editar</a>
 
 					</div>
@@ -311,11 +300,11 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item"
-							th:href="@{Dashboard/admin/respuesta/listar}">Listar</a> <a
+							th:href="@{/Dashboard/admin/respuesta/listar}">Listar</a> <a
 							class="collapse-item"
-							th:href="@{Dashboard/admin/respuesta/listar}">Crear</a> <a
+							th:href="@{/Dashboard/admin/respuesta/crear}">Crear</a> <a
 							class="collapse-item"
-							th:href="@{Dashboard/admin/respuesta/listar}">Editar</a>
+							th:href="@{/Dashboard/admin/respuesta/editar}">Editar</a>
 
 					</div>
 				</div></li>
@@ -396,12 +385,25 @@
 				<div id="ventas" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{listar}">Listar</a> <a
-							class="collapse-item" th:href="@{crear}">Crear</a> <a
-							class="collapse-item" th:href="@{editar}">Editar</a>
-
+						<a class="collapse-item" th:href="@{/Dashboard/admin/venta/listar}">Listar</a>
+						<a class="collapse-item" th:href="@{/Dashboard/admin/venta/crear}">Crear</a>
+						<a class="collapse-item" th:href="@{/Dashboard/admin/venta/editar}">Editar</a>
 					</div>
 				</div></li>
+				
+				             <!-- Nav Item - Pages Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#vender"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Vender</span>
+                </a>
+                <div id="vender" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" th:href="@{/Dashboard/admin/vender}">Vender</a>
+                    </div>
+                </div>
+            </li>
 
 
 			<!-- Divider -->
@@ -485,56 +487,66 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">Ventas</h1>
-
+					<h1 class="h3 mb-2 text-gray-800">Vender</h1>
+					<div
+						th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
+						th:if="${mensaje != null}" th:text="${mensaje}" class="alert">
+					</div>
 					<!-- DataTales Example -->
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Lista de las Ventas</h6>
-						</div>
-						<div
-							th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
-							th:if="${mensaje != null}" th:text="${mensaje}" class="alert">
-						</div>
+					<div class="card shadow mb-4">					
 						<div class="card-body">
+							<form th:object="${producto}"
+								th:action="@{/Dasboard/admin/vender/agregar}" method="post">
+								<div class="form-group">
+									<label for="codigo">Código de barras</label> <input autofocus
+										autocomplete="off" th:field="*{codigo}" id="codigo"
+										placeholder="Escanea el código o escríbelo y presiona Enter"
+										type="text" class="form-control"
+										th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''">
+									<div class="invalid-feedback" th:errors="*{codigo}"></div>
+
+								</div>
+							</form>
+
+							<form class="mb-2" th:action="@{/Dasboard/admin/vender/terminar}"
+								method="post">
+								<button type="submit" class="btn btn-success">
+									Terminar&nbsp;<i class="fa fa-check"></i>
+								</button>
+								<a th:href="@{/Dasboard/admin/vender/limpiar}"
+									class="btn btn-danger">Cancelar venta&nbsp;<i
+									class="fa fa-trash"></i>
+								</a>
+							</form>
+
+							<h1 th:text="${'Total: ' + total}"></h1>
 							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%"
-									cellspacing="0">
-									<thead>
+								<table class="table table-bordered">
 									<thead>
 										<tr>
-											<th>Fecha</th>
+											<th>Nombre</th>
+											<th>Código</th>
+											<th>Precio</th>
+											<th>Cantidad</th>
 											<th>Total</th>
-											<th>Productos</th>
+											<th>Quitar de lista</th>
 										</tr>
 									</thead>
-
-
 									<tbody>
-										<tr th:each="venta : ${venta}">
-											<td th:text="${venta.fecha}"></td>
-											<td th:text="${venta.total}"></td>
+										<tr th:each="producto, iterador : ${session.carrito}">
+											<td th:text="${producto.nombre}"></td>
+											<td th:text="${producto.codigo}"></td>
+											<td th:text="${producto.precioUnidad}"></td>
+											<td th:text="${producto.cantidad}"></td>
+											<td th:text="${producto.total}"></td>
 											<td>
-												<table class="table table-bordered">
-													<thead>
-														<tr>
-															<th>Nombre</th>
-															<th>Código de barras</th>
-															<th>Cantidad vendida</th>
-															<th>Precio</th>
-															<th>Total</th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr th:each="producto : ${venta.productosVendidos}">
-															<td th:text="${producto.nombre}"></td>
-															<td th:text="${producto.codigo}"></td>
-															<td th:text="${producto.cantidad}"></td>
-															<td th:text="${producto.precio}"></td>
-															<td th:text="${producto.total}"></td>
-														</tr>
-													</tbody>
-												</table>
+												<form
+													th:action="@{/Dasboard/admin/vender/quitar/} + ${iterador.index}"
+													method="post">
+													<button type="submit" class="btn btn-danger">
+														<i class="fa fa-trash"></i>
+													</button>
+												</form>
 											</td>
 										</tr>
 									</tbody>

@@ -23,7 +23,7 @@ import com.sena.disocc.repository.ProductosVendidosRepository;
 import com.sena.disocc.repository.VentaRepository;
 
 @Controller
-@RequestMapping("/Dasboard/admin/vender")
+@RequestMapping("/Dashboard/admin/vender")
 public class VenderController {
 
 	@Autowired
@@ -40,7 +40,7 @@ public class VenderController {
             carrito.remove(indice);
             this.guardarCarrito(carrito, request);
         }
-        return "redirect:/Dasboard/admin/vender/";
+        return "redirect:/Dashboard/admin/vender";
     }
 
     private void limpiarCarrito(HttpServletRequest request) {
@@ -53,7 +53,7 @@ public class VenderController {
         redirectAttrs
                 .addFlashAttribute("mensaje", "Venta cancelada")
                 .addFlashAttribute("clase", "info");
-        return "redirect:/Dasboard/admin/vender/";
+        return "redirect:/Dashboard/admin/vender";
     }
 
     @PostMapping(value = "/terminar")
@@ -61,7 +61,7 @@ public class VenderController {
         ArrayList<ProductoParaVender> carrito = this.obtenerCarrito(request);
         // Si no hay carrito o está vacío, regresamos inmediatamente
         if (carrito == null || carrito.size() <= 0) {
-            return "redirect:/Dasboard/admin/vender/";
+            return "redirect:/Dashboard/admin/vender";
         }
         Venta v = ventasRepository.save(new Venta());
         // Recorrer el carrito
@@ -85,17 +85,17 @@ public class VenderController {
         redirectAttrs
                 .addFlashAttribute("mensaje", "Venta realizada correctamente")
                 .addFlashAttribute("clase", "success");
-        return "redirect:/Dasboard/admin/vender/";
+        return "redirect:/Dashboard/admin/vender";
     }
 
-    @GetMapping("/")
+    @GetMapping(" ")
     public String interfazVender(Model model, HttpServletRequest request) {
         model.addAttribute("producto", new Productos());
         float total = 0;
         ArrayList<ProductoParaVender> carrito = this.obtenerCarrito(request);
         for (ProductoParaVender p: carrito) total += p.getTotal();
         model.addAttribute("total", total);
-        return "Dashboard/vender";
+        return "Dashboard/vender/venderBonito";
     }
 
     private ArrayList<ProductoParaVender> obtenerCarrito(HttpServletRequest request) {
@@ -118,13 +118,13 @@ public class VenderController {
             redirectAttrs
                     .addFlashAttribute("mensaje", "El producto con el código " + producto.getCodigo() + " no existe")
                     .addFlashAttribute("clase", "warning");
-            return "redirect:/Dasboard/admin/vender/";
+            return "redirect:/Dashboard/admin/vender";
         }
         if (productoBuscadoPorCodigo.sinExistencia()) {
             redirectAttrs
                     .addFlashAttribute("mensaje", "El producto está agotado")
                     .addFlashAttribute("clase", "warning");
-            return "redirect:/Dasboard/admin/vender/";
+            return "redirect:/Dashboard/admin/vender";
         }
         boolean encontrado = false;
         for (ProductoParaVender productoParaVenderActual : carrito) {
@@ -138,6 +138,6 @@ public class VenderController {
             carrito.add(new ProductoParaVender(productoBuscadoPorCodigo.getIdProducto(), productoBuscadoPorCodigo.getNombre(), productoBuscadoPorCodigo.getPrecioUnidad(), productoBuscadoPorCodigo.getStockDisponible(), productoBuscadoPorCodigo.getDescripcion(),productoBuscadoPorCodigo.getFechaVencimiento(),productoBuscadoPorCodigo.getMarca(),productoBuscadoPorCodigo.getCategoriaProducto(),productoBuscadoPorCodigo.getListaDetallecompra(),productoBuscadoPorCodigo.getListaVentas(),productoBuscadoPorCodigo.getListaEntradas(),productoBuscadoPorCodigo.getCodigo(), 1f));
         }
         this.guardarCarrito(carrito, request);
-        return "redirect:/Dasboard/admin/vender/";
+        return "redirect:/Dashboard/admin/vender";
     }
 }
