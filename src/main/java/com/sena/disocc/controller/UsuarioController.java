@@ -51,7 +51,7 @@ public class UsuarioController {
 	@PostMapping("/usuario")
 	public String guardar(@ModelAttribute("usuario") Usuario usuario) {
 		ususervice.saveUsuario(usuario);
-		return "redirect:/Dashboard/usuarios/usuariosListar";
+		return "redirect:/Dashboard/admin/usuario/listar";
 	}
 	
 	@GetMapping("/usuario/editar/{id}")
