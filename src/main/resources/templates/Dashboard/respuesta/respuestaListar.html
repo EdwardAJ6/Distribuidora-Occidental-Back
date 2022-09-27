@@ -460,28 +460,19 @@
                                                  <th>Descripcion</th>
                                                  <th>Id e la peticion</th>
                                                  <th>Id del usuario</th>
-                                                 <th>Acciones</th>
                                              </tr>
                                          </thead>                                
                                          <tbody>
-                                             <tr>
-                                                 <td>Id</td>
-                                                 <td>Descripcion</td>
-                                                 <td>Id e la peticio</td>
-                                                 <td>Id del usuario</td>
-                                                 <td>
-                                                    <a href="##" class="btn btn-danger btn-circle btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                    <a href="##" class="btn btn-info btn-circle btn-sm">
-                                                        <i class="fas fa-info-circle"></i>
-                                                    </a>
-                                                 </td>
+                                             <tr th:each="respuesta:${respuesta}">
+                                                 <td th:text="${respuesta.idRespuesta}">Id</td>
+                                                 <td th:text="${respuesta.descripcion}">Descripcion</td>
+                                                 <td th:text="${respuesta.FK_ID_PETICION.idPeticion}">Id e la peticio</td>
+                                                 <td th:text="${respuesta.FK_ID_USUARIO.idUsuario}">Id del usuario</td>
                                              </tr>                                  
                                          </tbody>
                                      </table>
                                  </div>
-                                 <a href="#" class="btn btn-success btn-icon-split">
+                                 <a th:href="@{crear}" class="btn btn-success btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-check"></i>
                                     </span>

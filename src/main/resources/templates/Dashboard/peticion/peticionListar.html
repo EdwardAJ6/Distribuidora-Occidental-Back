@@ -460,34 +460,19 @@
                                                  <th>Tipo de peticion</th>
                                                  <th>Descripcion</th>
                                                  <th>Usuario</th>
-                                                 <th>Acciones</th>
                                              </tr>
                                          </thead>                                
                                          <tbody>
-                                             <tr>
-                                                 <td>Id</td>
-                                                 <td>Tipo de peticion</td>
-                                                 <td>Descripcion</td>
-                                                 <td>Usuario</td>
-                                                 <td>
-                                                    <a href="##" class="btn btn-danger btn-circle btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                    <a href="##" class="btn btn-info btn-circle btn-sm">
-                                                        <i class="fas fa-info-circle"></i>
-                                                    </a>
-                                                 </td>
+                                             <tr th:each="peticion:${peticion}">
+                                                 <td th:text="${peticion.idPeticion}">Id</td>
+                                                 <td th:text="${peticion.tipopeticion.idTipoPeticion}">Tipo de peticion</td>
+                                                 <td th:text="${peticion.descripcion}">Descripcion</td>
+                                                 <td th:text="${peticion.usuario.idUsuario}">Usuario</td>
                                              </tr>
                                             
                                          </tbody>
                                      </table>
                                  </div>
-                                 <a href="#" class="btn btn-success btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-check"></i>
-                                    </span>
-                                    <span class="text">Crear</span>
-                                </a>
                              </div>
                          </div>
      

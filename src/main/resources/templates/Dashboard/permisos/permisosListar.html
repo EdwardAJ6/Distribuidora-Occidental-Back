@@ -458,32 +458,16 @@
                                              <tr>
                                                  <th>Id</th>
                                                  <th>Descripcion</th>
-                                                 <th>Acciones</th>
                                              </tr>
                                          </thead>                                
                                          <tbody>
-                                             <tr>
-                                                 <td>Id</td>
-                                                 <td>Descripcion</td>
-                                                 <td>
-                                                    <a href="##" class="btn btn-danger btn-circle btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                    <a href="##" class="btn btn-info btn-circle btn-sm">
-                                                        <i class="fas fa-info-circle"></i>
-                                                    </a>
-                                                 </td>
+                                             <tr th:each="permiso:${permiso}">
+                                                 <td th:text="${permiso.idPermiso}">Id</td>
+                                                 <td th:text="${permiso.descripcion}">Descripcion</td>
                                              </tr>
-                                            
                                          </tbody>
                                      </table>
                                  </div>
-                                 <a href="#" class="btn btn-success btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-check"></i>
-                                    </span>
-                                    <span class="text">Crear</span>
-                                </a>
                              </div>
                          </div>
      
