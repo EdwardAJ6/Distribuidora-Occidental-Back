@@ -68,7 +68,7 @@ public class UsuarioController {
 		Usuario usuarioExistente = ususervice.findById(id);
 		usuarioExistente.setIdUsuario(id);
 		usuarioExistente.setContrasena(usuario.getContrasena());
-		usuarioExistente.setCorreo(usuario.getCorreo());
+		usuarioExistente.setEmail(usuario.getEmail());
 		usuarioExistente.setDireccion(usuario.getDireccion());
 		usuarioExistente.setNumeroDocumento(usuario.getNumeroDocumento());
 		usuarioExistente.setPrimerApellido(usuario.getPrimerApellido());
@@ -77,7 +77,7 @@ public class UsuarioController {
 		usuarioExistente.setSegundoNombre(usuario.getSegundoNombre());
 		usuarioExistente.setTelefono(usuario.getTelefono());
 		usuarioExistente.setTipoDocumento(usuario.getTipoDocumento());
-		usuarioExistente.setIdRol(usuario.getIdRol());
+		usuarioExistente.setRoles(usuario.getRoles());
 		usuarioExistente.setIdEstado(usuario.getIdEstado());
 		ususervice.saveUsuario(usuarioExistente);
 		return "redirect:/Dashboard/usuarios/usuariosListar";

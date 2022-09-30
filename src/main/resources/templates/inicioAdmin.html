@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
 
@@ -14,7 +14,7 @@
     <!-- Custom fonts for this template hola-->
     <link th:href="@{../../../../vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
     <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        th:href="@{https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i}"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -417,7 +417,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" >[[${#request.userPrincipal.principal.Fullname}]]</span>
                                 <img class="img-profile rounded-circle"src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -813,7 +813,9 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="#">Logout</a>
+                    <form th:action="@{/logout}" method="post" th:hiddien="true">
+                    <input type="submit" value="Logout"  />     
+                    </form>
                 </div>
             </div>
         </div>

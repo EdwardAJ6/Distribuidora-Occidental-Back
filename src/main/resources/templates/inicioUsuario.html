@@ -31,7 +31,7 @@
                 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                     <!-- Sidebar - Brand -->
-                    <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/Dashboard/admin}">
+                    <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/Dashboard/usuario}">
                         <div class="sidebar-brand-icon rotate-n-15">
                             <i class="fas fa-laugh-wink" th:href="@{../img/icono.png}"></i>
                         </div>
@@ -43,7 +43,7 @@
         
                     <!-- Nav Item - Dashboard -->
                     <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/Dashboard/admin}">
+                        <a class="nav-link" th:href="@{/Dashboard/usuario}">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Dashboard</span></a>
                     </li>
@@ -570,7 +570,9 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="#">Logout</a>
+                    <form th:action="@{/logout}" method="post" th:hiddien="true">
+                    <input type="submit" value="Logout"  />     
+                    </form>
                 </div>
             </div>
         </div>

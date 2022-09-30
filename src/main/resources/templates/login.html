@@ -41,15 +41,26 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" th:action="@{/login}" method="post"><input type="hidden" name="_csrf">
+                                    
+                                    
+					<div th:if=${param.error}>
+						<div class="alert alert-danger">Usuario o contraseña
+							inválidos</div>
+					</div>
+
+					<div th:if=${param.logout}>
+						<div class="alert alert-info">Ha cerrado sesión exitosamente
+						</div>
+					</div>
+					
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <input id="email"  name="email" type="email" class="form-control"
+							required autofocus="autofocus" placeholder="Digite su email ID">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <input id="password" type="password"  name="password" class="form-control" required
+							autofocus="autofocus" placeholder="Digite su password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -58,9 +69,8 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="#}" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>                                                                             
+                                        <input type="submit" class="form-control btn btn-primary" name="login-submit" id="login-submit"
+									value="Iniciar sesión" />                                                                            
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -68,7 +78,7 @@
                                     </div>
                                     
                                     <div class="text-center">
-                                        <a class="small" th:href="@{/Login/registrar}">Create an Account!</a>
+                                        <a class="small" th:href="@{/registro}">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>

@@ -1,19 +1,41 @@
 package com.sena.disocc.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.sena.disocc.modelo.Usuario;
+import com.sena.disocc.repository.UsuarioRepository;
+import com.sena.disocc.service.UsuarioService;
+
+
 
 @Controller
-@RequestMapping("/Login")
 public class LoginController {
-
-	@GetMapping(" ")
-	public String irlogin() {		
+	
+	@GetMapping("/login")
+	public String iniciarSesion() {
 		return "login";
-	}	
-	@GetMapping("/registrar")
-	public String irregistrer() {		
+	}
+	
+	@Autowired
+	private UsuarioService usuarioService;
+
+
+	@GetMapping("/registro")
+	public String mostrarFormularioDeRegistro(Model model) {
+		model.addAttribute("usuario",new Usuario());
 		return "register";
 	}
+	
+	@PostMapping("/procesar")
+	public String registrarCuentaDeUsuario(Usuario usuario) {
+		
+	usuarioService.registerDefaultUser(usuario);
+		return "registroExitoso";
+	}
+	
 }
