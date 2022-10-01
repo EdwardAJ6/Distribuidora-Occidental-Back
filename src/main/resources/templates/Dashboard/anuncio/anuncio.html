@@ -25,6 +25,7 @@
 <link href="../../../../vendor/datatables/dataTables.bootstrap4.min.css"
 	rel="stylesheet">
 
+
 </head>
 
 <body id="page-top">
@@ -72,7 +73,7 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<a class="collapse-item"
-							th:href="@{/DashBoard/admin/categoriaProducto/listar}">Listar</a>
+							th:href="@{/Dashboard/admin/categoriaProducto/listar}">Listar</a>
 						<a class="collapse-item"
 							th:href="@{/Dashboard/admin/categoriaProducto/crear}">Crear</a> <a
 							class="collapse-item"
@@ -163,7 +164,7 @@
 						<a class="collapse-item"
 							th:href="@{/Dashboard/admin/inventarioEntrada/listar}">Listar</a>
 						<a class="collapse-item"
-							th:href="@{/Dashboard/admin/inventaroEntrada/crear}">Crear</a> <a
+							th:href="@{/Dashboard/admin/inventarioEntrada/crear}">Crear</a> <a
 							class="collapse-item"
 							th:href="@{/Dashboard/admin/inventarioEntrada/editar}">Editar</a>
 
@@ -266,9 +267,12 @@
 				<div id="producto" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" th:href="@{listar}">Listar</a> <a
-							class="collapse-item" th:href="@{crear}">Crear</a> <a
-							class="collapse-item" th:href="@{editar}">Editar</a>
+						<a class="collapse-item"
+							th:href="@{/Dashboard/admin/producto/listar}">Listar</a> <a
+							class="collapse-item"
+							th:href="@{/Dashboard/admin/producto/crear}">Crear</a> <a
+							class="collapse-item"
+							th:href="@{/Dashboard/admin/producto/editar}">Editar</a>
 
 					</div>
 				</div></li>
@@ -390,7 +394,19 @@
 							class="collapse-item" th:href="@{/Dashboard/admin/venta/crear}">Crear</a>
 						<a class="collapse-item"
 							th:href="@{/Dashboard/admin/venta/editar}">Editar</a>
+					</div>
+				</div></li>
 
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#vender" aria-expanded="true"
+				aria-controls="collapseTwo"> <i class="fas fa-fw fa-folder"></i>
+					<span>Vender</span>
+			</a>
+				<div id="vender" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" th:href="@{/Dashboard/admin/vender}">Vender</a>
 					</div>
 				</div></li>
 
@@ -475,67 +491,26 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
-
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">Vender</h1>
+					<div
+						th:classappend="'alert-' + (${clase != null} ? ${clase} : info)"
+						th:if="${mensaje != null}" th:text="${mensaje}" class="alert">
+					</div>
+					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Crear Producto</h6>
-						</div>
 						<div class="card-body">
-							<form th:action="@{/Dashboard/admin/producto}"
-								th:object="${producto}" method="POST">
+							<form th:action="@{/Dashboard/admin/anuncio/enviarAnuncio}" method="post">
 								<div class="form-row">
 									<div class="form-group col-md-6">
-										<label>Id</label> <input type="text" class="form-control"
-											th:field="*{idProducto}">
+										<label>Asunto</label> 
+										<input type="text" class="form-control" name="subject">
 									</div>
 									<div class="form-group col-md-6">
-										<label>Nombre del producto </label> <input type="text"
-											class="form-control" th:field="*{nombre}">
+										<label>Mensaje</label>
+										 <input type="text" class="form-control" name="body">
 									</div>
-									<div class="form-group col-md-6">
-										<label>Precio</label> <input type="text" class="form-control"
-											th:field="*{precioUnidad}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Stock </label> <input type="text" class="form-control"
-											th:field="*{stockDisponible}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Descripcion</label> <input type="text"
-											class="form-control" th:field="*{descripcion}">
-									</div>
-									<div class="form-group col-md-6">
-										<label>Fecha de vencimiento</label> <input type="date"
-											class="form-control" th:field="*{fechaVencimiento}">
-									</div>
-									<div class="form-group col-md-6">
-										<label for="exampleFormControlSelect1">Marca</label>
-										 <select
-											class="form-control" id="exampleFormControlSelect1" th:field="*{Marca}">
-											<option th:each="marca : ${marca}"
-												th:value="${marca.idMarca}" th:text="${marca.nombreMarca}"
-												th:selected="false"/>
-										</select>
-									</div>
-									<div class="form-group col-md-6">
-										<label for="exampleFormControlSelect1">Categoria</label>
-										 <select
-											class="form-control" id="exampleFormControlSelect1" th:field="*{CategoriaProducto}">
-											<option th:each="categoria : ${categoria}"
-												th:value="${categoria.idCategoria}" th:text="${categoria.idNombreCategoria}"
-												th:selected="false"/>
-										</select>
-									</div>
-									<div class="form-group col-md-6">
-										<label>Imagen</label> <input type="file" name="imagensubida"
-											accept="image/png, .jpeg, .jpg, image/gif">
-									</div>
-
 								</div>
-								<div class="form-group">
-                <label>Mensaje</label>
-                <textarea class="form-control" rows="5" name="body"></textarea>
-            </div>
 
 								<button type="submit" class="btn btn-success">Crear</button>
 							</form>
@@ -543,7 +518,8 @@
 					</div>
 
 				</div>
-				<!-- End of Main Content -->
+				<!-- /.container-fluid -->
+
 			</div>
 			<!-- End of Main Content -->
 

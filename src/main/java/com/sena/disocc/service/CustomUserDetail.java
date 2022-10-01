@@ -80,8 +80,6 @@ public class CustomUserDetail implements UserDetails{
 	public int getId() {
 		return usu.getIdUsuario();
 	}
-	
-
-	
+		
 
 }

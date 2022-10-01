@@ -1,5 +1,9 @@
 package com.sena.disocc.controller;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -32,10 +36,12 @@ public class LoginController {
 	}
 	
 	@PostMapping("/procesar")
-	public String registrarCuentaDeUsuario(Usuario usuario) {
+	public String registrarCuentaDeUsuario(Usuario usuario) 
+	throws UnsupportedEncodingException, MessagingException {
 		
 	usuarioService.registerDefaultUser(usuario);
+	usuarioService.sendEmailVerificacion(usuario);
 		return "registroExitoso";
 	}
-	
+
 }

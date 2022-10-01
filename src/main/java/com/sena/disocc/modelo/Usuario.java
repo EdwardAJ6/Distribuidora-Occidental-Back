@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -52,11 +53,8 @@ public class Usuario {
 	@JoinColumn(name = "FK_TIPO_DOCUMENTO", referencedColumnName = "ID_TIPO_DOCUMENTO")
 	private TipoDocumento tipoDocumento;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_roles" , joinColumns = @JoinColumn(name = "user_id"),inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Rol> roles = new HashSet<>();
  
@@ -99,6 +97,10 @@ public class Usuario {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public String Fullname() {
+		return this.getPrimerNombre() + " " + this.getPrimerApellido();
+	}
+		
 	 public boolean hasRol(String roleName) {
 	        Iterator<Rol> iterator = this.roles.iterator();
 	        while (iterator.hasNext()) {
