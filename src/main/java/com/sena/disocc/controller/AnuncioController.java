@@ -1,7 +1,5 @@
 package com.sena.disocc.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,10 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sena.disocc.modelo.Rol;
 import com.sena.disocc.modelo.TipoDocumento;
-import com.sena.disocc.modelo.Usuario;
-import com.sena.disocc.repository.UsuarioRepository;
 import com.sena.disocc.service.UsuarioService;
 import com.sena.disocc.utilitis.MailSend;
 
@@ -34,7 +29,7 @@ public class AnuncioController {
 	@PostMapping("/enviarAnuncio")
     public String sendMail(@RequestParam("subject") String subject, @RequestParam("body") String body){
 		TipoDocumento tipodoc = new TipoDocumento();
-		tipodoc.setIdTipoDocumento(1);
+		tipodoc.setIdTipoDocumento(2);
 		mailSend.notificarUsuario(usuarioService.findByTipoDocumento(tipodoc),subject,body);
 
         return "redirect:/Dashboard/admin";
