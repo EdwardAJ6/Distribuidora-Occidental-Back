@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -34,41 +34,44 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
+                            <div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha registrado exitosamente a
+						la aplicación</div>
+				</div>
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" th:action="@{/procesar}" method="post" th:object="${usuario}">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                            placeholder="First Name" th:field="*{primerNombre}"
+							required autofocus="autofocus">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
+                                            placeholder="Last Name" th:field="*{primerApellido}"
+							required autofocus="autofocus">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                        placeholder="Email Address" th:field="*{email}"
+							required autofocus="autofocus">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                            placeholder="Password" th:field="*{contrasena}"
+							required autofocus="autofocus">
                                     </div>
                                 </div>
-                                <a  th:href="@{/Login}" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
+                            <button type="submit" class="btn btn-success">Registrar</button>
+
                                 <hr>
 
                             </form>
                             <div class="text-center">
-                                <a class="small" th:href="@{/Login}">Already have an account? Login!</a>
+                                <a class="small" th:href="@{/login}">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>
