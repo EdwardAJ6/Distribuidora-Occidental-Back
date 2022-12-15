@@ -40,7 +40,6 @@ public class LoginController {
 	throws UnsupportedEncodingException, MessagingException {
 		
 	usuarioService.registerDefaultUser(usuario);
-	usuarioService.sendEmailVerificacion(usuario);
 		return "registroExitoso";
 	}
 
